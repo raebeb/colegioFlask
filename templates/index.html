@@ -1642,7 +1642,7 @@ src="https://www.facebook.com/tr?id=1558892560819583&ev=PageView&noscript=1"
         <div id="wh-mobile-menu" class="respmenu-wrap">
             <div class="respmenu-header">
                 <a href="#" class="respmenu-header-logo-link">
-                    <img src="logo.jpg" class="respmenu-header-logo" alt="Logo">
+                    <img src="{{ url_for('static', filename='img/logo.jpg') }}" class="respmenu-header-logo" alt="Logo">
                 </a>
                 <div class="respmenu-open">
                     <hr>
@@ -1657,12 +1657,12 @@ src="https://www.facebook.com/tr?id=1558892560819583&ev=PageView&noscript=1"
                     <li id="menu-item-1081" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-8 current_page_item menu-item-has-children menu-item-1081 msm-top-level-item"><a href="#" aria-current="page">Home</a>
                         <div class="respmenu-submenu-toggle cbp-respmenu-more"><i class="fa fa-angle-down"></i></div>
                     </li>
-                    <li id="menu-item-1082" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-1082 msm-top-level-item"><a href="Nosotros/indexNosotros.html">Nosotros</a>
+                    <li id="menu-item-1082" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-1082 msm-top-level-item"><a href="{{ url_for('MisionyVision') }}">Nosotros</a>
                         <div class="respmenu-submenu-toggle cbp-respmenu-more"><i class="fa fa-angle-down"></i></div>
 
                         <ul class="sub-menu">
-                            <li id="menu-item-1083" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1083"><a href="Nosotros/indexNosotros.html">Misión y Visión</a></li>
-                            <li id="menu-item-1084" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1084"><a href="Nosotros/indexPlanEmergencia.html">Plan de Emergencia</a></li>
+                            <li id="menu-item-1083" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1083"><a href="{{ url_for('MisionyVision') }}">Misión y Visión</a></li>
+                            <li id="menu-item-1084" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1084"><a href="{{ url_for('PlanEmergencia') }}">Plan de Emergencia</a></li>
                             <li id="menu-item-1085" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1085"><a href="Nosotros/indexHistoria.html">Historia de nuestro colegio</a></li>
                         </ul>
                     </li>
@@ -1703,7 +1703,7 @@ src="https://www.facebook.com/tr?id=1558892560819583&ev=PageView&noscript=1"
                             <!--LOGO INICIO-->
                             <figure class="wpb_wrapper vc_figure">
                                 <a href="#">
-                                    <img src="logo.jpg" alt="logo" width=160 height=30>
+                                    <img src="{{ url_for('static', filename='img/logo.jpg') }}" alt="logo" width=160 height=30>
                                     <!--El Logo-->
                                 </a>
                             </figure>
@@ -1755,7 +1755,7 @@ src="https://www.facebook.com/tr?id=1558892560819583&ev=PageView&noscript=1"
                         <div class="wh-logo wpb_single_image wpb_content_element vc_align_center vc_custom_1459169763730">
                             <!--LOGO INICIO SCROLL-->
                             <figure class="wpb_wrapper vc_figure">
-                                <a href="#"><img class=" vc_single_image-img" src="logo.jpg" alt="logo" /></a>
+                                <a href="#"><img class=" vc_single_image-img" src="{{ url_for('static', filename='img/logo.jpg') }}" alt="logo" /></a>
                             </figure>
                         </div>
                         <div class="vc_separator wpb_content_element vc_separator_align_center vc_sep_width_50 vc_sep_pos_align_center vc_separator_no_text vc_sep_color_grey vc_custom_1459169732301  vc_custom_1459169732301"><span class="vc_sep_holder vc_sep_holder_l"><span  class="vc_sep_line"></span></span><span class="vc_sep_holder vc_sep_holder_r"><span  class="vc_sep_line"></span></span>
@@ -1772,7 +1772,7 @@ src="https://www.facebook.com/tr?id=1558892560819583&ev=PageView&noscript=1"
             <div class="cbp-container">
                 <div class="logo-sticky wh-padding">
                     <a href="#">
-                        <img width="100" src="logo.jpg" alt="Logo">
+                        <img width="100" src="{{ url_for('static', filename='img/logo.jpg') }}" alt="Logo">
                     </a>
                 </div>
                 <!--INICIO-->
@@ -1787,10 +1787,10 @@ src="https://www.facebook.com/tr?id=1558892560819583&ev=PageView&noscript=1"
 
 
                                 <!--Nosotros-->
-                                <li id="menu-item-953" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-953 msm-top-level-item"><a href="Nosotros/indexNosotros.html">Nosotros</a>
+                                <li id="menu-item-953" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-953 msm-top-level-item"><a href="{{ url_for('MisionyVision') }}">Nosotros</a>
                                     <ul class="sub-menu">
-                                        <li id="menu-item-959" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-959"><a href="Nosotros/indexNosotros.html">Misión y visión</a></li>
-                                        <li id="menu-item-958" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-958"><a href="Nosotros/indexPlanEmergencia.html">Plan de emergencia</a></li>
+                                        <li id="menu-item-959" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-959"><a href="{{ url_for('MisionyVision') }}">Misión y visión</a></li>
+                                        <li id="menu-item-958" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-958"><a href="{{ url_for('PlanEmergencia') }}">Plan de emergencia</a></li>
                                         <li id="menu-item-957" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-957"><a href="Nosotros/indexHistoria.html">Historia de nuestro colegio</a></li>
                                     </ul>
                                 </li>
@@ -1910,7 +1910,7 @@ src="https://www.facebook.com/tr?id=1558892560819583&ev=PageView&noscript=1"
                             <div class="wh-theme-icon vc_custom_1459517972344  scp_theme_icon-7ad1f7d5cf666ef6f1de6efab63efeb8">
                                 <i class="material-icons">arrow_forward</i>
                             </div>
-                            <p style="font-size: 16px;color: #ff7264;text-align: left;font-family:Raleway;font-weight:400;font-style:normal" class="vc_custom_heading vc_custom_1459517809317"><a href="Nosotros/indexNosotros.html">Leer Más</a></p>
+                            <p style="font-size: 16px;color: #ff7264;text-align: left;font-family:Raleway;font-weight:400;font-style:normal" class="vc_custom_heading vc_custom_1459517809317"><a href="{{ url_for('MisionyVision') }}">Leer Más</a></p>
                         </div>
                         <!-- #Fin Mini Historia -->
                     </div>
@@ -2027,7 +2027,7 @@ src="https://www.facebook.com/tr?id=1558892560819583&ev=PageView&noscript=1"
                             <div class="wh-theme-icon vc_custom_1458812082156 scp_theme_icon-470072418e15da9081bc564cd2aa209b ">
                                 <i class="material-icons " style="font-size:36px">security</i>
                             </div>
-                            <h5 style="text-align: left" class="vc_custom_heading vc_custom_1459236179187"><a href="Nosotros/indexPlanEmergencia.html">Plan de emergencia</a></h5>
+                            <h5 style="text-align: left" class="vc_custom_heading vc_custom_1459236179187"><a href="{{ url_for('PlanEmergencia') }}">Plan de emergencia</a></h5>
                             <p style="font-size: 14px;line-height: 23px;text-align: left" class="vc_custom_heading vc_custom_1459509804019">Nuestro colegio cuenta con lugares y areas seguras.</p>
                         </div>
                     </div>
@@ -2281,10 +2281,11 @@ src="https://www.facebook.com/tr?id=1558892560819583&ev=PageView&noscript=1"
 
                                 </div>
                             </div>
-                            <button class="wh-alt-button  scp_theme_button-d5b5fb02962831dd90dcad8641c7bb89"><a href="docs/ConvivenciaEscolar.docx" download="Manual de convivencia escolar">
+                            <button class="wh-alt-button  scp_theme_button-d5b5fb02962831dd90dcad8641c7bb89">
+                                <a href="{{ url_for('static', filename='docs/ConvivenciaEscolar.docx') }}" download="Manual de convivencia escolar">
                                 Descargar Manual de convivencia escolar
                                 </a></button> <br><br>
-                            <button class="wh-alt-button  scp_theme_button-d5b5fb02962831dd90dcad8641c7bb89"><a href="docs/planEmergencia.docx" download="Plan de emergencia">
+                            <button class="wh-alt-button  scp_theme_button-d5b5fb02962831dd90dcad8641c7bb89"><a href="{{ url_for('static', filename='docs/planEmergencia.docx') }}" download="Plan de emergencia">
                                 Descargar Plan de emergencia
                                 </a></button></div>
                     </div>
