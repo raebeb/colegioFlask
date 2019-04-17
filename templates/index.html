@@ -3,7 +3,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Escuela San Jośe Obrero</title>
 <meta name='robots' content='noindex,follow' />
-<link rel="shortcut icon" type="image/png" href="favicon.png" />
+<link rel="shortcut icon" type="image/png" href="{{ url_for('static', filename='img/favicon.png') }}" />
 <!-- favicon-->
 <link rel='dns-prefetch' href='//fonts.googleapis.com' />
 <link rel='dns-prefetch' href='//s.w.org' />
@@ -1663,12 +1663,12 @@ src="https://www.facebook.com/tr?id=1558892560819583&ev=PageView&noscript=1"
                         <ul class="sub-menu">
                             <li id="menu-item-1083" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1083"><a href="{{ url_for('MisionyVision') }}">Misión y Visión</a></li>
                             <li id="menu-item-1084" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1084"><a href="{{ url_for('PlanEmergencia') }}">Plan de Emergencia</a></li>
-                            <li id="menu-item-1085" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1085"><a href="Nosotros/indexHistoria.html">Historia de nuestro colegio</a></li>
+                            <li id="menu-item-1085" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1085"><a href="{{ url_for('Historia') }}">Historia de nuestro colegio</a></li>
                         </ul>
                     </li>
 
-                    <li id="menu-item-1089" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1089 msm-top-level-item"><a href="Galeria/Galeria.html">Galería</a></li>
-                    <li id="menu-item-1091" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1091 msm-top-level-item"><a href="Noticias/Noticias.html">Noticias</a></li>
+                    <li id="menu-item-1089" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1089 msm-top-level-item"><a href="{{ url_for('Galeria') }}">Galería</a></li>
+                    <li id="menu-item-1091" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1091 msm-top-level-item"><a href="{{ url_for('Noticias') }}">Noticias</a></li>
                 </ul>
             </div>
         </div>
@@ -1791,19 +1791,19 @@ src="https://www.facebook.com/tr?id=1558892560819583&ev=PageView&noscript=1"
                                     <ul class="sub-menu">
                                         <li id="menu-item-959" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-959"><a href="{{ url_for('MisionyVision') }}">Misión y visión</a></li>
                                         <li id="menu-item-958" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-958"><a href="{{ url_for('PlanEmergencia') }}">Plan de emergencia</a></li>
-                                        <li id="menu-item-957" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-957"><a href="Nosotros/indexHistoria.html">Historia de nuestro colegio</a></li>
+                                        <li id="menu-item-957" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-957"><a href="{{ url_for('Historia') }}">Historia de nuestro colegio</a></li>
                                     </ul>
                                 </li>
 
                                 <!--GALERIA DE FOTOS-->
-                                <li id="menu-item-949" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-949 msm-top-level-item msm-menu-item menu-item-has-children msm-hover"><a href="Galeria/Galeria.html">Galeria de fotos</a>
+                                <li id="menu-item-949" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-949 msm-top-level-item msm-menu-item menu-item-has-children msm-hover"><a href="{{ url_for('Galeria') }}">Galeria de fotos</a>
                                 </li>
 
                                 <!--FIN DE GALERIA DE FOTOS-->
 
 
                                 <!--Noticias-->
-                                <li id="menu-item-951" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-951 msm-top-level-item"><a href="Noticias/Noticias.html">Noticias</a></li>
+                                <li id="menu-item-951" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-951 msm-top-level-item"><a href="{{ url_for('Noticias') }}">Noticias</a></li>
 
                             </ul>
                         </div>
@@ -1910,7 +1910,7 @@ src="https://www.facebook.com/tr?id=1558892560819583&ev=PageView&noscript=1"
                             <div class="wh-theme-icon vc_custom_1459517972344  scp_theme_icon-7ad1f7d5cf666ef6f1de6efab63efeb8">
                                 <i class="material-icons">arrow_forward</i>
                             </div>
-                            <p style="font-size: 16px;color: #ff7264;text-align: left;font-family:Raleway;font-weight:400;font-style:normal" class="vc_custom_heading vc_custom_1459517809317"><a href="{{ url_for('MisionyVision') }}">Leer Más</a></p>
+                            <p style="font-size: 16px;color: #ff7264;text-align: left;font-family:Raleway;font-weight:400;font-style:normal" class="vc_custom_heading vc_custom_1459517809317"><a href="{{ url_for('Historia') }}">Leer Más</a></p>
                         </div>
                         <!-- #Fin Mini Historia -->
                     </div>
@@ -1976,7 +1976,7 @@ src="https://www.facebook.com/tr?id=1558892560819583&ev=PageView&noscript=1"
                                     </a>
                                 </figure>
                             </div>
-                            <h3 style="text-align: left" class="vc_custom_heading"><a href="Galeria/Galeria.html">School Video</a></h3>
+                            <h3 style="text-align: left" class="vc_custom_heading"><a href="{{ url_for('Galeria') }}">School Video</a></h3>
                             <div class="wpb_text_column wpb_content_element  vc_custom_1459850250124">
                                 <div class="wpb_wrapper">
                                     <p>Whilst we aim to ensure every child reaches their full potential academically, they are also taught that they can be successful in many different ways. This could be anything.</p>
@@ -2209,7 +2209,7 @@ src="https://www.facebook.com/tr?id=1558892560819583&ev=PageView&noscript=1"
                                             <div class="content">
                                                 <p>Education is the process of facilitating learning. Knowledge, skills, values, beliefs, and habits of a group of people are transferred to other people, through storytelling,&hellip;</p>
                                             </div>
-                                            <a class="read-more" href="Noticias/Noticias.html">Leer más ...</a>
+                                            <a class="read-more" href="{{ url_for('Noticias') }}">Leer más ...</a>
                                         </div>
                                     </div>
                                     <div class="wh-padding item one third">
@@ -2220,17 +2220,17 @@ src="https://www.facebook.com/tr?id=1558892560819583&ev=PageView&noscript=1"
                                                 <div class="day">
                                                     25 </div>
                                             </div>
-                                            <a href="Noticias/Noticias.html" title="Calendar Changes in School Time"><img width="768" height="430" src="http://schooltime.aislinthemes.com/app/uploads/sites/2/2016/02/news-02-768x430.png" class="post-list-thumb wp-post-image" alt="" /></a>
+                                            <a href="{{ url_for('Noticias') }}" title="Calendar Changes in School Time"><img width="768" height="430" src="http://schooltime.aislinthemes.com/app/uploads/sites/2/2016/02/news-02-768x430.png" class="post-list-thumb wp-post-image" alt="" /></a>
                                         </div>
                                         <div class="data">
                                             <h3>
-                                                <a title="Calendar Changes in School Time" href="Noticias/Noticias.html">
+                                                <a title="Calendar Changes in School Time" href="{{ url_for('Noticias') }}">
             Calendar Changes in School Time			</a>
                                             </h3>
                                             <div class="content">
                                                 <p>Education is the process of facilitating learning. Knowledge, skills, values, beliefs, and habits of a group of people are transferred to other people, through storytelling,&hellip;</p>
                                             </div>
-                                            <a class="read-more" href="Noticias/Noticias.html">Leer más ...</a>
+                                            <a class="read-more" href="{{ url_for('Noticias') }}">Leer más ...</a>
                                         </div>
                                     </div>
                                     <div class="wh-padding item one third">
@@ -2241,17 +2241,17 @@ src="https://www.facebook.com/tr?id=1558892560819583&ev=PageView&noscript=1"
                                                 <div class="day">
                                                     22 </div>
                                             </div>
-                                            <a href="Noticias/Noticias.html" title="Read Across America Week and Bookfair!"><img width="768" height="430" src="http://schooltime.aislinthemes.com/app/uploads/sites/2/2016/02/news-01-768x430.png" class="post-list-thumb wp-post-image" alt="" /></a>
+                                            <a href="{{ url_for('Noticias') }}" title="Read Across America Week and Bookfair!"><img width="768" height="430" src="http://schooltime.aislinthemes.com/app/uploads/sites/2/2016/02/news-01-768x430.png" class="post-list-thumb wp-post-image" alt="" /></a>
                                         </div>
                                         <div class="data">
                                             <h3>
-                                                <a title="Read Across America Week and Bookfair!" href="Noticias/Noticias.html">
+                                                <a title="Read Across America Week and Bookfair!" href="{{ url_for('Noticias') }}">
             Read Across America Week and Bookfair!			</a>
                                             </h3>
                                             <div class="content">
                                                 <p>Education is the process of facilitating learning. Knowledge, skills, values, beliefs, and habits of a group of people are transferred to other people, through storytelling,&hellip;</p>
                                             </div>
-                                            <a class="read-more" href="Noticias/Noticias.html">Leer más ...</a>
+                                            <a class="read-more" href="{{ url_for('Noticias') }}">Leer más ...</a>
                                         </div>
                                     </div>
                                 </div>

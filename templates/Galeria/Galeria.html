@@ -7,7 +7,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1">
     <title>Gallery &#8211; Modern</title>
     <meta name='robots' content='noindex,follow' />
-    <link rel="shortcut icon" type="image/png" href="favicon.png" />
+    <link rel="shortcut icon" type="image/png" href="{{ url_for('static', filename='img/favicon.png') }}" />
     <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
     <link rel='dns-prefetch' href='//fonts.googleapis.com' />
     <link rel='dns-prefetch' href='//s.w.org' />
@@ -1085,8 +1085,8 @@ src="https://www.facebook.com/tr?id=1558892560819583&ev=PageView&noscript=1"
     <div class="header-mobile header-mobile-default">
         <div id="wh-mobile-menu" class="respmenu-wrap">
             <div class="respmenu-header">
-                <a href="../index.html" class="respmenu-header-logo-link">
-                    <img src="../logo.jpg" class="respmenu-header-logo" alt="Logo">
+                <a href="{{ url_for('index') }}" class="respmenu-header-logo-link">
+                    <img src="{{ url_for('static', filename='img/logo.jpg') }}" class="respmenu-header-logo" alt="Logo">
                 </a>
                 <div class="respmenu-open">
                     <hr>
@@ -1098,16 +1098,16 @@ src="https://www.facebook.com/tr?id=1558892560819583&ev=PageView&noscript=1"
             <!--Tenemos que cambiar las referencias una vez terminemos las pág-->
             <div class="menu-mobile-menu-container">
                 <ul id="menu-mobile-menu" class="respmenu">
-                    <li id="menu-item-1081" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-8 current_page_item menu-item-has-children menu-item-1081 msm-top-level-item"><a href="../index.html" aria-current="page">Home</a>
+                    <li id="menu-item-1081" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-8 current_page_item menu-item-has-children menu-item-1081 msm-top-level-item"><a href="{{ url_for('index') }}" aria-current="page">Home</a>
                         <div class="respmenu-submenu-toggle cbp-respmenu-more"><i class="fa fa-angle-down"></i></div>
                     </li>
-                    <li id="menu-item-1082" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-1082 msm-top-level-item"><a href="../Nosotros/indexNosotros.html">Nosotros</a>
+                    <li id="menu-item-1082" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-1082 msm-top-level-item"><a href="{{ url_for('MisionyVision') }}">Nosotros</a>
                         <div class="respmenu-submenu-toggle cbp-respmenu-more"><i class="fa fa-angle-down"></i></div>
 
                         <ul class="sub-menu">
-                            <li id="menu-item-1083" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1083"><a href="../Nosotros/indexNosotros.html">Misión y Visión</a></li>
-                            <li id="menu-item-1084" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1084"><a href="../Nosotros/indexPlanEmergencia.html">Plan de Emergencia</a></li>
-                            <li id="menu-item-1085" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1085"><a href="../Nosotros/indexHistoria.html">Historia de nuestro colegio</a></li>
+                            <li id="menu-item-1083" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1083"><a href="{{ url_for('MisionyVision') }}">Misión y Visión</a></li>
+                            <li id="menu-item-1084" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1084"><a href="{{ url_for('PlanEmergencia') }}">Plan de Emergencia</a></li>
+                            <li id="menu-item-1085" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1085"><a href="{{ url_for('Historia') }}">Historia de nuestro colegio</a></li>
                         </ul>
                     </li>
 
@@ -1146,8 +1146,8 @@ src="https://www.facebook.com/tr?id=1558892560819583&ev=PageView&noscript=1"
                         <div class="wh-logo wpb_single_image wpb_content_element vc_align_left">
                             <!--LOGO INICIO-->
                             <figure class="wpb_wrapper vc_figure">
-                                <a href="../index.html">
-                                    <img src="../logo.jpg" alt="logo" width=160 height=30>
+                                <a href="{{ url_for('index') }}">
+                                    <img src="{{ url_for('static', filename='img/logo.jpg') }}" alt="logo" width=160 height=30>
                                     <!--El Logo-->
                                 </a>
                             </figure>
@@ -1199,7 +1199,7 @@ src="https://www.facebook.com/tr?id=1558892560819583&ev=PageView&noscript=1"
                         <div class="wh-logo wpb_single_image wpb_content_element vc_align_center vc_custom_1459169763730">
                             <!--LOGO INICIO SCROLL-->
                             <figure class="wpb_wrapper vc_figure">
-                                <a href="../index.html"><img class=" vc_single_image-img" src="../logo.jpg" alt="logo" /></a>
+                                <a href="{{ url_for('index') }}"><img class=" vc_single_image-img" src="{{ url_for('static', filename='img/logo.jpg') }}" alt="logo" /></a>
                             </figure>
                         </div>
                         <div class="vc_separator wpb_content_element vc_separator_align_center vc_sep_width_50 vc_sep_pos_align_center vc_separator_no_text vc_sep_color_grey vc_custom_1459169732301  vc_custom_1459169732301"><span class="vc_sep_holder vc_sep_holder_l"><span  class="vc_sep_line"></span></span><span class="vc_sep_holder vc_sep_holder_r"><span  class="vc_sep_line"></span></span>
@@ -1215,8 +1215,8 @@ src="https://www.facebook.com/tr?id=1558892560819583&ev=PageView&noscript=1"
         <div class="wh-main-menu-bar-wrapper wh-sticky-header-enabled">
             <div class="cbp-container">
                 <div class="logo-sticky wh-padding">
-                    <a href="../index.html">
-                        <img width="100" src="../logo.jpg" alt="Logo">
+                    <a href="{{ url_for('index') }}">
+                        <img width="100" src="{{ url_for('static', filename='img/logo.jpg') }}" alt="Logo">
                     </a>
                 </div>
                 <!--INICIO-->
@@ -1225,17 +1225,17 @@ src="https://www.facebook.com/tr?id=1558892560819583&ev=PageView&noscript=1"
                     <div id="cbp-menu-main">
                         <div class="menu-main-menu-container">
                             <ul id="menu-main-menu" class="sf-menu wh-menu-main pull-left show-x">
-                                <li id="menu-item-948" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-8 current_page_item menu-item-has-children menu-item-948 msm-top-level-item"><a href="../index.html" aria-current="page"><i class="material-icons">home</i></a>
+                                <li id="menu-item-948" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-8 current_page_item menu-item-has-children menu-item-948 msm-top-level-item"><a href="{{ url_for('index') }}" aria-current="page"><i class="material-icons">home</i></a>
 
                                 </li>
 
 
                                 <!--Nosotros-->
-                                <li id="menu-item-953" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-953 msm-top-level-item"><a href="../Nosotros/indexNosotros.html">Nosotros</a>
+                                <li id="menu-item-953" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-953 msm-top-level-item"><a href="{{ url_for('MisionyVision') }}">Nosotros</a>
                                     <ul class="sub-menu">
-                                        <li id="menu-item-959" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-959"><a href="../Nosotros/indexNosotros.html">Misión y visión</a></li>
-                                        <li id="menu-item-958" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-958"><a href="../Nosotros/indexPlanEmergencia.html">Plan de emergencia</a></li>
-                                        <li id="menu-item-957" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-957"><a href="../Nosotros/indexHistoria.html">Historia de nuestro colegio</a></li>
+                                        <li id="menu-item-959" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-959"><a href="{{ url_for('MisionyVision') }}">Misión y visión</a></li>
+                                        <li id="menu-item-958" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-958"><a href="{{ url_for('PlanEmergencia') }}">Plan de emergencia</a></li>
+                                        <li id="menu-item-957" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-957"><a href="{{ url_for('Historia') }}">Historia de nuestro colegio</a></li>
                                     </ul>
                                 </li>
 
@@ -1247,7 +1247,7 @@ src="https://www.facebook.com/tr?id=1558892560819583&ev=PageView&noscript=1"
 
 
                                 <!--Noticias-->
-                                <li id="menu-item-951" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-951 msm-top-level-item"><a href="../Noticias/Noticias.html">Noticias</a></li>
+                                <li id="menu-item-951" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-951 msm-top-level-item"><a href="{{ url_for('Noticias') }}">Noticias</a></li>
 
                             </ul>
                         </div>
@@ -1295,7 +1295,7 @@ src="https://www.facebook.com/tr?id=1558892560819583&ev=PageView&noscript=1"
                         <ul class="trail-items" itemscope itemtype="http://schema.org/BreadcrumbList">
                             <meta name="numberOfItems" content="2" />
                             <meta name="itemListOrder" content="Ascending" />
-                            <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem" class="trail-item trail-begin"><a href="../index.html" rel="home" itemprop="item"><span itemprop="name">Home</span></a>
+                            <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem" class="trail-item trail-begin"><a href="{{ url_for('index') }}" rel="home" itemprop="item"><span itemprop="name">Home</span></a>
                                 <meta itemprop="position" content="1" />
                             </li>
                             <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem" class="trail-item trail-end"><span itemprop="item"><span itemprop="name">Galeria</span></span>
