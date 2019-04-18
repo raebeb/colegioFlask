@@ -1,8 +1,9 @@
-from flask import Flask, render_template
+from flask import Flask, render_template, request, redirect, url_for
 from flask_sqlalchemy import SQLAlchemy
+from datetime import datetime
 
 app = Flask(__name__)
-app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///C/Users/fran/Documents/Desarrollo/colegio/respaldo/colegio.db'
+app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///colegio.db'
 db = SQLAlchemy(app)
 
 class noticia(db.Model):
@@ -16,7 +17,8 @@ class noticia(db.Model):
 
 @app.route('/')
 def index():
-    return render_template('index.html')
+    posts = noticia.query.order_by(noticia.date.desc()).all()
+    return render_template('index.html', posts=posts)
 
 @app.route('/Mision-y-Vision')
 def MisionyVision():
@@ -34,10 +36,29 @@ def Historia():
 def Galeria():
     return render_template('Galeria/Galeria.html')
 
-@app.route('/Noticias')
-def Noticias():
-    return render_template('Noticias/Noticias.html')
+@app.route('/Noticias/<int:post_id>')
+def Noticias(post_id):
+    post = noticia.query.filter_by(id=post_id).one()
 
+    date = post.date.strftime('%B %d, %Y')
+
+    return render_template('Noticias/Noticias.html', post=post, date=date)
+
+@app.route('/add')
+def add ():
+    return render_template('add.html')
+
+@app.route('/addpost', methods=['POST'])
+def addPost():
+    titulo = request.form['titulo']
+    cuerpo = request.form['cuerpo']
+
+    post = noticia(title=titulo, text=cuerpo, date=datetime.now())
+
+    db.session.add(post)
+    db.session.commit()
+
+    return redirect(url_for('index'))
 #@app.route('/upload', methods=['POST'])
 #def upload():
 #    file = request.files['inputFile']

@@ -1668,7 +1668,7 @@ src="https://www.facebook.com/tr?id=1558892560819583&ev=PageView&noscript=1"
                     </li>
 
                     <li id="menu-item-1089" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1089 msm-top-level-item"><a href="{{ url_for('Galeria') }}">Galería</a></li>
-                    <li id="menu-item-1091" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1091 msm-top-level-item"><a href="{{ url_for('Noticias') }}">Noticias</a></li>
+
                 </ul>
             </div>
         </div>
@@ -1802,8 +1802,6 @@ src="https://www.facebook.com/tr?id=1558892560819583&ev=PageView&noscript=1"
                                 <!--FIN DE GALERIA DE FOTOS-->
 
 
-                                <!--Noticias-->
-                                <li id="menu-item-951" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-951 msm-top-level-item"><a href="{{ url_for('Noticias') }}">Noticias</a></li>
 
                             </ul>
                         </div>
@@ -2191,48 +2189,9 @@ src="https://www.facebook.com/tr?id=1558892560819583&ev=PageView&noscript=1"
                         <div class="wpb_wrapper">
                             <div class="linp-post-list wh-post-list wh-text-color layout_1">
                                 <div class="vc_row">
-                                    <div class="wh-padding item one third">
-                                        <div class="img-container">
-                                            <div class="date">
-                                                <div class="month">
-                                                    Feb </div>
-                                                <div class="day">
-                                                    25 </div>
-                                            </div>
-                                            <a href="#" title="Ti"><img width="768" height="430" src="http://schooltime.aislinthemes.com/app/uploads/sites/2/2016/02/News-04-768x430.png" class="post-list-thumb wp-post-image" alt="" /></a>
-                                        </div>
-                                        <div class="data">
-                                            <h3>
-                                                <a title="Survey for School Time Alumni" href="#">
-            Survey for School Time Alumni			</a>
-                                            </h3>
-                                            <div class="content">
-                                                <p>Education is the process of facilitating learning. Knowledge, skills, values, beliefs, and habits of a group of people are transferred to other people, through storytelling,&hellip;</p>
-                                            </div>
-                                            <a class="read-more" href="{{ url_for('Noticias') }}">Leer más ...</a>
-                                        </div>
-                                    </div>
-                                    <div class="wh-padding item one third">
-                                        <div class="img-container">
-                                            <div class="date">
-                                                <div class="month">
-                                                    Feb </div>
-                                                <div class="day">
-                                                    25 </div>
-                                            </div>
-                                            <a href="{{ url_for('Noticias') }}" title="Calendar Changes in School Time"><img width="768" height="430" src="http://schooltime.aislinthemes.com/app/uploads/sites/2/2016/02/news-02-768x430.png" class="post-list-thumb wp-post-image" alt="" /></a>
-                                        </div>
-                                        <div class="data">
-                                            <h3>
-                                                <a title="Calendar Changes in School Time" href="{{ url_for('Noticias') }}">
-            Calendar Changes in School Time			</a>
-                                            </h3>
-                                            <div class="content">
-                                                <p>Education is the process of facilitating learning. Knowledge, skills, values, beliefs, and habits of a group of people are transferred to other people, through storytelling,&hellip;</p>
-                                            </div>
-                                            <a class="read-more" href="{{ url_for('Noticias') }}">Leer más ...</a>
-                                        </div>
-                                    </div>
+
+                                    <!-- noticia-->
+                                    {% for post in posts %}
                                     <div class="wh-padding item one third">
                                         <div class="img-container">
                                             <div class="date">
@@ -2241,19 +2200,23 @@ src="https://www.facebook.com/tr?id=1558892560819583&ev=PageView&noscript=1"
                                                 <div class="day">
                                                     22 </div>
                                             </div>
-                                            <a href="{{ url_for('Noticias') }}" title="Read Across America Week and Bookfair!"><img width="768" height="430" src="http://schooltime.aislinthemes.com/app/uploads/sites/2/2016/02/news-01-768x430.png" class="post-list-thumb wp-post-image" alt="" /></a>
+                                            <a href="#" title="Read Across America Week and Bookfair!"><img width="768" height="430" src="http://schooltime.aislinthemes.com/app/uploads/sites/2/2016/02/news-01-768x430.png" class="post-list-thumb wp-post-image" alt="" /></a>
                                         </div>
                                         <div class="data">
                                             <h3>
-                                                <a title="Read Across America Week and Bookfair!" href="{{ url_for('Noticias') }}">
-            Read Across America Week and Bookfair!			</a>
+                                                <a title="Read Across America Week and Bookfair!" href="#">
+                                                    {{ post.title }}
+                                                </a>
                                             </h3>
                                             <div class="content">
-                                                <p>Education is the process of facilitating learning. Knowledge, skills, values, beliefs, and habits of a group of people are transferred to other people, through storytelling,&hellip;</p>
+                                                {{ post.text}}
                                             </div>
-                                            <a class="read-more" href="{{ url_for('Noticias') }}">Leer más ...</a>
+                                            <a class="read-more" href="{{ url_for('Noticias', post_id=post.id) }}">Leer más ...</a>
                                         </div>
                                     </div>
+                                    {% endfor%}
+
+
                                 </div>
                             </div>
                         </div>
