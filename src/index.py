@@ -36,6 +36,11 @@ def Historia():
 def Galeria():
     return render_template('Galeria/Galeria.html')
 
+@app.route('/Noticias-all')
+def noticiasAll():
+    posts = noticia.query.order_by(noticia.date.desc()).all()
+    return render_template('Noticias/noticiasAll.html', post=posts)
+
 @app.route('/Noticias/<int:post_id>')
 def Noticias(post_id):
     post = noticia.query.filter_by(id=post_id).one()
@@ -67,4 +72,4 @@ def addPost():
 #    db.session.commit()
 
 if __name__ == '__main__':
-    app.run(debug=True)
+    app.run(use_reloader = True, debug=True)

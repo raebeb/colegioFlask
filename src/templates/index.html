@@ -1794,7 +1794,9 @@ src="https://www.facebook.com/tr?id=1558892560819583&ev=PageView&noscript=1"
                                         <li id="menu-item-957" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-957"><a href="{{ url_for('Historia') }}">Historia de nuestro colegio</a></li>
                                     </ul>
                                 </li>
-
+                                <!--Noticias (Todas)-->
+                                <li id="menu-item-949" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-949 msm-top-level-item msm-menu-item menu-item-has-children msm-hover"><a href="{{ url_for('noticiasAll') }}">Noticias</a>
+                                </li>
                                 <!--GALERIA DE FOTOS-->
                                 <li id="menu-item-949" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-949 msm-top-level-item msm-menu-item menu-item-has-children msm-hover"><a href="{{ url_for('Galeria') }}">Galeria de fotos</a>
                                 </li>
@@ -2191,14 +2193,14 @@ src="https://www.facebook.com/tr?id=1558892560819583&ev=PageView&noscript=1"
                                 <div class="vc_row">
 
                                     <!-- noticia-->
-                                    {% for post in posts %}
-                                    <div class="wh-padding item one third">
+                                    {% for post in posts[0:4] %}
+                                    <div class="wh-padding item one fourth">
                                         <div class="img-container">
                                             <div class="date">
                                                 <div class="month">
-                                                    Feb </div>
+                                                    {{post.date.strftime('%B')}} </div>
                                                 <div class="day">
-                                                    22 </div>
+                                                    {{post.date.strftime('%d')}} </div>
                                             </div>
                                             <a href="#" title="Read Across America Week and Bookfair!"><img width="768" height="430" src="http://schooltime.aislinthemes.com/app/uploads/sites/2/2016/02/news-01-768x430.png" class="post-list-thumb wp-post-image" alt="" /></a>
                                         </div>
@@ -2214,7 +2216,7 @@ src="https://www.facebook.com/tr?id=1558892560819583&ev=PageView&noscript=1"
                                             <a class="read-more" href="{{ url_for('Noticias', post_id=post.id) }}">Leer más ...</a>
                                         </div>
                                     </div>
-                                    {% endfor%}
+                                    {% endfor %}
 
 
                                 </div>
@@ -2956,4 +2958,4 @@ src="https://www.facebook.com/tr?id=1558892560819583&ev=PageView&noscript=1"
     <script type='text/javascript' src='http://schooltime.aislinthemes.com/app/plugins/js_composer/assets/lib/vc-tta-autoplay/vc-tta-autoplay.min.js?ver=5.7'></script>
 </body>
 
-</html
+</html>
