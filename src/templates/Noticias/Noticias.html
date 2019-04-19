@@ -1288,7 +1288,7 @@ src="https://www.facebook.com/tr?id=1558892560819583&ev=PageView&noscript=1"
     <div class="cbp-row wh-page-title-bar">
         <div class="cbp-container">
             <div class="one whole wh-padding wh-page-title-wrapper">
-                <h1 class="page-title">News</h1>
+                <h1 class="page-title">Noticias</h1>
             </div>
         </div>
     </div>
@@ -1322,123 +1322,19 @@ src="https://www.facebook.com/tr?id=1558892560819583&ev=PageView&noscript=1"
                                     sizes="(max-width: 895px) 100vw, 895px" /></a>
                         </div>
                         <h2 class="entry-title"><a href="http://schooltime.aislinthemes.com/modern/2016/02/25/post-2/">{{ post.title }}</a></h2>
-                        publicado el: {{post.date}}
+                        publicado el: {{post.date.strftime('%d')}} de {{post.date.strftime('%B')}}, {{post.date.strftime('%Y')}}
                     </div>
                     <div class="item one whole">
                         <div class="entry-summary">{{ post.text }}
 
                         </div>
-
-                        <a class="wh-button read-more hoverable" href="http://schooltime.aislinthemes.com/modern/2016/02/25/post-2/"><span class="anim"></span>Read more</a>
                     </div>
                 </div>
 
                 <div class="double-pad-top">
                 </div>
             </div>
-            <div class="wh-sidebar one fourth wh-padding">
-                <div class="widget search-2 widget_search">
-                    <form role="search" method="get" class="search-form form-inline" action="http://schooltime.aislinthemes.com/modern/">
-                        <input type="search" value="" name="s" class="search-field" placeholder="Search">
-                        <label class="hidden">Search for:</label>
 
-                        <button type="submit" class="search-submit"><a href="{{ url_for('add')}}" >
-                                Buscar
-                                </a></button>
-
-                    </form>
-                </div>
-                <div class="widget recent-posts-2 widget_recent_entries">
-                    <h5 class="widget-title">Recent Posts</h5>
-                    <ul>
-                        <li>
-                            <a href="http://schooltime.aislinthemes.com/modern/2016/02/25/post-2/">Survey for School Time Alumni</a>
-                        </li>
-                        <li>
-                            <a href="http://schooltime.aislinthemes.com/modern/2016/02/25/post-1/">Calendar Changes in School Time</a>
-                        </li>
-                        <li>
-                            <a href="http://schooltime.aislinthemes.com/modern/2016/02/22/hello-world-2/">Read Across America Week and Bookfair!</a>
-                        </li>
-                    </ul>
-                </div>
-                <div class="widget archives-2 widget_archive">
-                    <h5 class="widget-title">Archives</h5>
-                    <ul>
-                        <li><a href='http://schooltime.aislinthemes.com/modern/2016/02/'>February 2016</a></li>
-                    </ul>
-                </div>
-                <div class="widget categories-2 widget_categories">
-                    <h5 class="widget-title">Categories</h5>
-                    <ul>
-                        <li class="cat-item cat-item-2"><a href="http://schooltime.aislinthemes.com/modern/category/category-1/">Category 1</a>
-                        </li>
-                        <li class="cat-item cat-item-3"><a href="http://schooltime.aislinthemes.com/modern/category/category-2/">Category 2</a>
-                        </li>
-                        <li class="cat-item cat-item-1"><a href="http://schooltime.aislinthemes.com/modern/category/uncategorized/">Uncategorized</a>
-                        </li>
-                    </ul>
-                </div>
-                <div class="widget meta-2 widget_meta">
-                    <h5 class="widget-title">Meta</h5>
-                    <ul>
-                        <li><a href="http://schooltime.aislinthemes.com/modern/wp-login.php">Log in</a></li>
-                        <li><a href="http://schooltime.aislinthemes.com/modern/feed/">Entries <abbr title="Really Simple Syndication">RSS</abbr></a></li>
-                        <li><a href="http://schooltime.aislinthemes.com/modern/comments/feed/">Comments <abbr title="Really Simple Syndication">RSS</abbr></a></li>
-                        <li><a href="https://wordpress.org/" title="Powered by WordPress, state-of-the-art semantic personal publishing platform.">WordPress.org</a></li>
-                    </ul>
-                </div>
-                <div class="widget scp_latest_posts-1 widget-latest-posts">
-                    <h5 class="widget-title">Latest Posts</h5>
-                    <div class="widget-post-list-item ">
-                        <div class="title">
-                            <a title="Survey for School Time Alumni" href="http://schooltime.aislinthemes.com/modern/2016/02/25/post-2/">Survey for School Time Alumni</a>
-                        </div>
-                        <div class="meta-data">
-                            <span class="date">
-                        25 Feb, 2016                    </span>
-
-                        </div>
-
-                    </div>
-
-                    <div class="widget-post-list-item ">
-                        <div class="title">
-                            <a title="Calendar Changes in School Time" href="http://schooltime.aislinthemes.com/modern/2016/02/25/post-1/">Calendar Changes in School Time</a>
-                        </div>
-                        <div class="meta-data">
-                            <span class="date">
-                        25 Feb, 2016                    </span>
-
-                        </div>
-
-                    </div>
-
-                    <div class="widget-post-list-item ">
-                        <div class="title">
-                            <a title="Read Across America Week and Bookfair!" href="http://schooltime.aislinthemes.com/modern/2016/02/22/hello-world-2/">Read Across America Week and Bookfair!</a>
-                        </div>
-                        <div class="meta-data">
-                            <span class="date">
-                        22 Feb, 2016                    </span>
-
-                        </div>
-
-                    </div>
-                </div>
-                <div class="widget tag_cloud-1 widget_tag_cloud">
-                    <h5 class="widget-title">Tags</h5>
-                    <div class="tagcloud"><a href="http://schooltime.aislinthemes.com/modern/tag/book/" class="tag-cloud-link tag-link-4 tag-link-position-1" style="font-size: 8pt;" aria-label="Book (1 item)">Book</a>
-                        <a href="http://schooltime.aislinthemes.com/modern/tag/calendar/" class="tag-cloud-link tag-link-5 tag-link-position-2" style="font-size: 8pt;" aria-label="Calendar (1 item)">Calendar</a>
-                        <a href="http://schooltime.aislinthemes.com/modern/tag/date/" class="tag-cloud-link tag-link-6 tag-link-position-3" style="font-size: 8pt;" aria-label="Date (1 item)">Date</a>
-                        <a href="http://schooltime.aislinthemes.com/modern/tag/library/" class="tag-cloud-link tag-link-7 tag-link-position-4" style="font-size: 8pt;" aria-label="Library (1 item)">Library</a>
-                        <a href="http://schooltime.aislinthemes.com/modern/tag/read/" class="tag-cloud-link tag-link-8 tag-link-position-5" style="font-size: 8pt;" aria-label="Read (1 item)">Read</a>
-                        <a href="http://schooltime.aislinthemes.com/modern/tag/reading/" class="tag-cloud-link tag-link-9 tag-link-position-6" style="font-size: 8pt;" aria-label="Reading (1 item)">Reading</a>
-                        <a href="http://schooltime.aislinthemes.com/modern/tag/school/" class="tag-cloud-link tag-link-10 tag-link-position-7" style="font-size: 8pt;" aria-label="School (1 item)">School</a>
-                        <a href="http://schooltime.aislinthemes.com/modern/tag/smart/" class="tag-cloud-link tag-link-11 tag-link-position-8" style="font-size: 8pt;" aria-label="Smart (1 item)">Smart</a>
-                        <a href="http://schooltime.aislinthemes.com/modern/tag/year/" class="tag-cloud-link tag-link-12 tag-link-position-9" style="font-size: 8pt;" aria-label="Year (1 item)">Year</a></div>
-                </div>
-            </div>
         </div>
     </div>
     <div class="cbp-row wh-footer">
