@@ -1,6 +1,7 @@
 from flask import Flask, render_template, request, redirect, url_for
 from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
+import os
 
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///colegio.db'
@@ -53,8 +54,14 @@ def Noticias(post_id):
 def add ():
     return render_template('add.html')
 
-@app.route('/addpost', methods=['POST'])
+APP_ROOT = os.path.dirname(os.path.abspath(__file__))
+@app.route('/addpost', methods=['GET','POST'])
 def addPost():
+
+    
+    filename = request.files['foto']
+    filename.save(os.path.join(app.config['static/imgUpload'], filename))
+    
     titulo = request.form['titulo']
     cuerpo = request.form['cuerpo']
 
