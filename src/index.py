@@ -1,10 +1,13 @@
 from flask import Flask, render_template, request, redirect, url_for
 from flask_sqlalchemy import SQLAlchemy
 from datetime import datetime
+from werkzeug.utils import secure_filename
 import os
 
+UPLOAD_FOLDER = 'static\imgUpload'
 app = Flask(__name__)
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///colegio.db'
+app.config['UPLOAD_FOLDER'] = UPLOAD_FOLDER
 db = SQLAlchemy(app)
 
 class noticia(db.Model):
@@ -58,10 +61,10 @@ APP_ROOT = os.path.dirname(os.path.abspath(__file__))
 @app.route('/addpost', methods=['GET','POST'])
 def addPost():
 
-    
-    filename = request.files['foto']
-    filename.save(os.path.join(app.config['static/imgUpload'], filename))
-    
+    file = request.files['foto']
+    filename = secure_filename(file.filename)
+    file.save(os.path.join(app.config['UPLOAD_FOLDER'], filename))
+
     titulo = request.form['titulo']
     cuerpo = request.form['cuerpo']
 
@@ -71,12 +74,11 @@ def addPost():
     db.session.commit()
 
     return redirect(url_for('index'))
-#@app.route('/upload', methods=['POST'])
-#def upload():
-#    file = request.files['inputFile']
-#    newFile = noticia(nameImage=file.filename, data=file.read)
-#    db.session.add(newFile)
-#    db.session.commit()
+
+@app.route('/static/imgUpload/<filename>')
+def uploaded_file(filename):
+    return send_from_directory(app.config['UPLOAD_FOLDER'],
+                               filename)
 
 if __name__ == '__main__':
     app.run(use_reloader = True, debug=True)
