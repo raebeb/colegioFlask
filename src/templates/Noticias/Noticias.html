@@ -1318,8 +1318,14 @@ src="https://www.facebook.com/tr?id=1558892560819583&ev=PageView&noscript=1"
                 <div class="wh-post-item post-35 post type-post status-publish format-standard has-post-thumbnail hentry category-category-1 category-category-2 category-uncategorized tag-reading tag-school tag-smart odd">
                     <div class="one whole">
                         <div class="thumbnail">
+
                             <a href="http://schooltime.aislinthemes.com/modern/2016/02/25/post-2/" title="Survey for School Time Alumni">
-                                <img width="895" height="430" src="{{url_for( 'uploaded_file', 'filename=filename')}}" class="wh-featured-image wp-post-image" alt="" sizes="(max-width: 895px) 100vw, 895px" /></a>
+
+                                {% for image_name in image_names %}
+                            
+                                <img width="895" height="430" src="{{url_for( 'uploaded_file', 'filename=image_name')}}" class="wh-featured-image wp-post-image" alt="" sizes="(max-width: 895px) 100vw, 895px" /></a> {% endfor
+                            %}
+
                         </div>
                         <h2 class="entry-title"><a href="http://schooltime.aislinthemes.com/modern/2016/02/25/post-2/">{{ post.title }}</a></h2>
                         publicado el: {{post.date.strftime('%d')}} de {{post.date.strftime('%B')}}, {{post.date.strftime('%Y')}}

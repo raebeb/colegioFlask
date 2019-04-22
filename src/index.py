@@ -51,6 +51,8 @@ def Noticias(post_id):
 
     date = post.date.strftime('%B %d, %Y')
 
+    image_names = os.listdir('static/imgUpload')
+
     return render_template('Noticias/Noticias.html', post=post, date=date)
 
 @app.route('/add')
@@ -68,12 +70,12 @@ def addPost():
     titulo = request.form['titulo']
     cuerpo = request.form['cuerpo']
 
-    post = noticia(title=titulo, text=cuerpo, date=datetime.now())
+    post = noticia(title=titulo, text=cuerpo, date=datetime.now(), nameImage = filename)
 
     db.session.add(post)
     db.session.commit()
 
-    return redirect(url_for('index'))
+    return redirect('/')
 
 @app.route('/static/imgUpload/<filename>')
 def uploaded_file(filename):
