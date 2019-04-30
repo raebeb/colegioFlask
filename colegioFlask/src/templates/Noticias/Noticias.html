@@ -1,0 +1,1549 @@
+<!DOCTYPE html>
+<html class="no-js" lang="en-US">
+
+<head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Noticias &#8211; Escuela San José</title>
+    <meta name='robots' content='noindex,follow' />
+    <link rel="shortcut icon" type="image/png" href="{{ url_for('static', filename='img/favicon.png') }}" />
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+    <link rel='dns-prefetch' href='//fonts.googleapis.com' />
+    <link rel='dns-prefetch' href='//s.w.org' />
+    <link rel="alternate" type="application/rss+xml" title="Modern &raquo; Feed" href="http://schooltime.aislinthemes.com/modern/feed/" />
+    <link rel="alternate" type="text/calendar" title="Modern &raquo; iCal Feed" href="http://schooltime.aislinthemes.com/modern/events/?ical=1" />
+    <script type="text/javascript">
+        window._wpemojiSettings = {
+            "baseUrl": "https:\/\/s.w.org\/images\/core\/emoji\/11.2.0\/72x72\/",
+            "ext": ".png",
+            "svgUrl": "https:\/\/s.w.org\/images\/core\/emoji\/11.2.0\/svg\/",
+            "svgExt": ".svg",
+            "source": {
+                "wpemoji": "http:\/\/schooltime.aislinthemes.com\/modern\/wp-includes\/js\/wp-emoji.js?ver=5.1",
+                "twemoji": "http:\/\/schooltime.aislinthemes.com\/modern\/wp-includes\/js\/twemoji.js?ver=5.1"
+            }
+        };
+        /**
+         * @output wp-includes/js/wp-emoji-loader.js
+         */
+
+        (function(window, document, settings) {
+            var src, ready, ii, tests;
+
+            // Create a canvas element for testing native browser support of emoji.
+            var canvas = document.createElement('canvas');
+            var context = canvas.getContext && canvas.getContext('2d');
+
+            /**
+             * Checks if two sets of Emoji characters render the same visually.
+             *
+             * @since 4.9.0
+             *
+             * @private
+             *
+             * @param {number[]} set1 Set of Emoji character codes.
+             * @param {number[]} set2 Set of Emoji character codes.
+             *
+             * @return {boolean} True if the two sets render the same.
+             */
+            function emojiSetsRenderIdentically(set1, set2) {
+                var stringFromCharCode = String.fromCharCode;
+
+                // Cleanup from previous test.
+                context.clearRect(0, 0, canvas.width, canvas.height);
+                context.fillText(stringFromCharCode.apply(this, set1), 0, 0);
+                var rendered1 = canvas.toDataURL();
+
+                // Cleanup from previous test.
+                context.clearRect(0, 0, canvas.width, canvas.height);
+                context.fillText(stringFromCharCode.apply(this, set2), 0, 0);
+                var rendered2 = canvas.toDataURL();
+
+                return rendered1 === rendered2;
+            }
+
+            /**
+             * Detects if the browser supports rendering emoji or flag emoji.
+             *
+             * Flag emoji are a single glyph made of two characters, so some browsers
+             * (notably, Firefox OS X) don't support them.
+             *
+             * @since 4.2.0
+             *
+             * @private
+             *
+             * @param {string} type Whether to test for support of "flag" or "emoji".
+             *
+             * @return {boolean} True if the browser can render emoji, false if it cannot.
+             */
+            function browserSupportsEmoji(type) {
+                var isIdentical;
+
+                if (!context || !context.fillText) {
+                    return false;
+                }
+
+                /*
+                 * Chrome on OS X added native emoji rendering in M41. Unfortunately,
+                 * it doesn't work when the font is bolder than 500 weight. So, we
+                 * check for bold rendering support to avoid invisible emoji in Chrome.
+                 */
+                context.textBaseline = 'top';
+                context.font = '600 32px Arial';
+
+                switch (type) {
+                    case 'flag':
+                        /*
+                         * Test for UN flag compatibility. This is the least supported of the letter locale flags,
+                         * so gives us an easy test for full support.
+                         *
+                         * To test for support, we try to render it, and compare the rendering to how it would look if
+                         * the browser doesn't render it correctly ([U] + [N]).
+                         */
+                        isIdentical = emojiSetsRenderIdentically(
+                            [55356, 56826, 55356, 56819], [55356, 56826, 8203, 55356, 56819]
+                        );
+
+                        if (isIdentical) {
+                            return false;
+                        }
+
+                        /*
+                         * Test for English flag compatibility. England is a country in the United Kingdom, it
+                         * does not have a two letter locale code but rather an five letter sub-division code.
+                         *
+                         * To test for support, we try to render it, and compare the rendering to how it would look if
+                         * the browser doesn't render it correctly (black flag emoji + [G] + [B] + [E] + [N] + [G]).
+                         */
+                        isIdentical = emojiSetsRenderIdentically(
+                            [55356, 57332, 56128, 56423, 56128, 56418, 56128, 56421, 56128, 56430, 56128, 56423, 56128, 56447], [55356, 57332, 8203, 56128, 56423, 8203, 56128, 56418, 8203, 56128, 56421, 8203, 56128, 56430, 8203, 56128, 56423, 8203, 56128, 56447]
+                        );
+
+                        return !isIdentical;
+                    case 'emoji':
+                        /*
+                         * She's the hero Emoji deserves, but not the one it needs right now.
+                         *
+                         * To test for support, try to render a new emoji (female superhero),
+                         * then compare it to how it would look if the browser doesn't render it correctly
+                         * (superhero + female sign) .
+                         */
+                        isIdentical = emojiSetsRenderIdentically(
+                            [55358, 56760, 9792, 65039], [55358, 56760, 8203, 9792, 65039]
+                        );
+
+                        return !isIdentical;
+                }
+
+                return false;
+            }
+
+            /**
+             * Adds a script to the head of the document.
+             *
+             * @ignore
+             *
+             * @since 4.2.0
+             *
+             * @param {Object} src The url where the script is located.
+             * @return {void}
+             */
+            function addScript(src) {
+                var script = document.createElement('script');
+
+                script.src = src;
+                script.defer = script.type = 'text/javascript';
+                document.getElementsByTagName('head')[0].appendChild(script);
+            }
+
+            tests = Array('flag', 'emoji');
+
+            settings.supports = {
+                everything: true,
+                everythingExceptFlag: true
+            };
+
+            /*
+             * Tests the browser support for flag emojis and other emojis, and adjusts the
+             * support settings accordingly.
+             */
+            for (ii = 0; ii < tests.length; ii++) {
+                settings.supports[tests[ii]] = browserSupportsEmoji(tests[ii]);
+
+                settings.supports.everything = settings.supports.everything && settings.supports[tests[ii]];
+
+                if ('flag' !== tests[ii]) {
+                    settings.supports.everythingExceptFlag = settings.supports.everythingExceptFlag && settings.supports[tests[ii]];
+                }
+            }
+
+            settings.supports.everythingExceptFlag = settings.supports.everythingExceptFlag && !settings.supports.flag;
+
+            // Sets DOMReady to false and assigns a ready function to settings.
+            settings.DOMReady = false;
+            settings.readyCallback = function() {
+                settings.DOMReady = true;
+            };
+
+            // When the browser can not render everything we need to load a polyfill.
+            if (!settings.supports.everything) {
+                ready = function() {
+                    settings.readyCallback();
+                };
+
+                /*
+                 * Cross-browser version of adding a dom ready event.
+                 */
+                if (document.addEventListener) {
+                    document.addEventListener('DOMContentLoaded', ready, false);
+                    window.addEventListener('load', ready, false);
+                } else {
+                    window.attachEvent('onload', ready);
+                    document.attachEvent('onreadystatechange', function() {
+                        if ('complete' === document.readyState) {
+                            settings.readyCallback();
+                        }
+                    });
+                }
+
+                src = settings.source || {};
+
+                if (src.concatemoji) {
+                    addScript(src.concatemoji);
+                } else if (src.wpemoji && src.twemoji) {
+                    addScript(src.twemoji);
+                    addScript(src.wpemoji);
+                }
+            }
+
+        })(window, document, window._wpemojiSettings);
+    </script>
+    <style type="text/css">
+        img.wp-smiley,
+        img.emoji {
+            display: inline !important;
+            border: none !important;
+            box-shadow: none !important;
+            height: 1em !important;
+            width: 1em !important;
+            margin: 0 .07em !important;
+            vertical-align: -0.1em !important;
+            background: none !important;
+            padding: 0 !important;
+        }
+    </style>
+    <link rel='stylesheet' id='layerslider-css' href='http://schooltime.aislinthemes.com/app/plugins/LayerSlider/static/layerslider/css/layerslider.css?ver=6.8.2' type='text/css' media='all' />
+    <link rel='stylesheet' id='ls-google-fonts-css' href='http://fonts.googleapis.com/css?family=Lato:100,300,regular,700,900%7COpen+Sans:300%7CIndie+Flower:regular%7COswald:300,regular,700&#038;subset=latin%2Clatin-ext' type='text/css' media='all' />
+    <link rel='stylesheet' id='wp-block-library-css' href='http://schooltime.aislinthemes.com/modern/wp-includes/css/dist/block-library/style.css?ver=5.1' type='text/css' media='all' />
+    <link rel='stylesheet' id='contact-form-7-css' href='http://schooltime.aislinthemes.com/app/plugins/contact-form-7/includes/css/styles.css?ver=5.1.1' type='text/css' media='all' />
+    <link rel='stylesheet' id='mega-submenu-css' href='http://schooltime.aislinthemes.com/app/plugins/school-time-plugin/extensions/mega-submenu/public/css/style.css?ver=1.2.8' type='text/css' media='all' />
+    <link rel='stylesheet' id='mega-submenu-woocommerce-css' href='http://schooltime.aislinthemes.com/app/plugins/school-time-plugin/extensions/mega-submenu/public/css/woocommerce.css?ver=1.2.8' type='text/css' media='all' />
+    <link rel='stylesheet' id='smart-grid-css' href='http://schooltime.aislinthemes.com/app/plugins/school-time-plugin/extensions/smart-grid-gallery/includes/dist/sgg.min.css?ver=5.1' type='text/css' media='all' />
+    <link rel='stylesheet' id='school-time-theme-icons-css' href='http://schooltime.aislinthemes.com/app/themes/school-time/assets/css/theme-icons.css?ver=5.1' type='text/css' media='all' />
+    <link rel='stylesheet' id='testimonial-rotator-style-css' href='http://schooltime.aislinthemes.com/app/plugins/testimonial-rotator/testimonial-rotator-style.css?ver=5.1' type='text/css' media='all' />
+    <link rel='stylesheet' id='font-awesome-css' href='http://schooltime.aislinthemes.com/app/plugins/js_composer/assets/lib/bower/font-awesome/css/font-awesome.min.css?ver=5.7' type='text/css' media='all' />
+    <link rel='stylesheet' id='scp-style-css' href='http://schooltime.aislinthemes.com/app/plugins/school-time-plugin/public/css/style.css?ver=5.1' type='text/css' media='all' />
+    <link rel='stylesheet' id='groundwork-grid-css' href='http://schooltime.aislinthemes.com/app/themes/school-time/assets/css/groundwork-responsive.css?ver=5.1' type='text/css' media='all' />
+    <link rel='stylesheet' id='js_composer_front-css' href='http://schooltime.aislinthemes.com/app/plugins/js_composer/assets/css/js_composer.min.css?ver=5.7' type='text/css' media='all' />
+    <link rel='stylesheet' id='school-time-style-css' href='http://schooltime.aislinthemes.com/app/themes/school-time-child-demo/style.css?ver=5.1' type='text/css' media='all' />
+    <style id='school-time-style-inline-css' type='text/css'>
+        .header-mobile {
+            display: none;
+        }
+        
+        @media screen and (max-width:1000px) {
+            .header-left {
+                padding-left: 0;
+            }
+            .wh-header,
+            .wh-top-bar {
+                display: none;
+            }
+            .header-mobile {
+                display: block;
+            }
+        }
+    </style>
+    <link rel='stylesheet' id='redux-google-fonts-school_time_options-css' href='http://fonts.googleapis.com/css?family=Lato%3A400%7CRaleway%3A100%2C200%2C300%2C400%2C500%2C600%2C700%2C800%2C900%2C100italic%2C200italic%2C300italic%2C400italic%2C500italic%2C600italic%2C700italic%2C800italic%2C900italic&#038;subset=latin&#038;ver=1552310170'
+        type='text/css' media='all' />
+    <link rel='stylesheet' id='school_time_options_style-css' href='//schooltime.aislinthemes.com/app/uploads/sites/2/school_time_options_style.css?ver=5.1' type='text/css' media='all' />
+    <style id='school_time_options_style-inline-css' type='text/css'>
+        .st-slider-button {
+            background-color: #f35849 !important;
+            color: #fff !important;
+        }
+        
+        .st-slider-button:hover {
+            background-color: #f35849 !important;
+            color: #fff !important;
+        }
+        
+        .st-slider-alt-button {
+            background-color: #fff !important;
+            color: #f35849 !important;
+        }
+        
+        .st-slider-alt-button:hover {
+            background-color: #f35849 !important;
+            color: #fff !important;
+        }
+        
+        .wh-footer {
+            color: #fff;
+        }
+        
+        @media (max-width:768px) {
+            .wh-footer-big-title,
+            .wh-footer-big-title a {
+                font-size: 16px;
+                line-height: 21px;
+            }
+        }
+        
+        .vc_custom_1459852617004 {
+            margin-bottom: 0px !important;
+            padding-top: 26px !important;
+            background-color: #34373c !important;
+        }
+        
+        .vc_custom_1457437609751 {
+            background-color: #34373c !important;
+        }
+        
+        .vc_custom_1457438149013 {
+            padding-bottom: 60px !important;
+            background-color: #34373c !important;
+        }
+        
+        .vc_custom_1459855724027 {
+            margin-bottom: 0px !important;
+        }
+        
+        .vc_custom_1459855732948 {
+            margin-bottom: 0px !important;
+        }
+        
+        .vc_custom_1459855742539 {
+            margin-bottom: 0px !important;
+        }
+        
+        .vc_custom_1459432656616 {
+            margin-top: -4px !important;
+        }
+        
+        .vc_custom_1459855886345 {
+            padding-left: 44px !important;
+        }
+        
+        .vc_custom_1459432669783 {
+            margin-top: -7px !important;
+        }
+        
+        .vc_custom_1459855894008 {
+            padding-left: 44px !important;
+        }
+        
+        .vc_custom_1459432681279 {
+            margin-top: -4px !important;
+        }
+        
+        .vc_custom_1459855902816 {
+            padding-left: 44px !important;
+        }
+        
+        .vc_custom_1459852665865 {
+            margin-bottom: 0px !important;
+            padding-top: 0px !important;
+        }
+        
+        .vc_custom_1457436622007 {
+            padding-top: 0px !important;
+        }
+        
+        .vc_custom_1459852701024 {
+            margin-bottom: 0px !important;
+            padding-top: 0px !important;
+        }
+        
+        .vc_custom_1459852997752 {
+            margin-bottom: 10px !important;
+            padding-top: 0px !important;
+        }
+        
+        .vc_custom_1459520219603 {
+            margin-top: 0px !important;
+            padding-top: 0px !important;
+        }
+        
+        .vc_custom_1459520288563 {
+            margin-bottom: 15px !important;
+        }
+        
+        .vc_custom_1459520010654 {
+            margin-bottom: 30px !important;
+        }
+        
+        .vc_custom_1459520284747 {
+            margin-bottom: 15px !important;
+        }
+        
+        .vc_custom_1459852535619 {
+            margin-bottom: -15px !important;
+        }
+        
+        .vc_custom_1459852844704 {
+            margin-bottom: -15px !important;
+        }
+        
+        .vc_custom_1459520279651 {
+            margin-bottom: 15px !important;
+        }
+        
+        .vc_custom_1459520420890 {
+            margin-bottom: 10px !important;
+        }
+        
+        .vc_custom_1459520428711 {
+            margin-bottom: 10px !important;
+        }
+        
+        .vc_custom_1459754126438 {
+            margin-bottom: 15px !important;
+        }
+        
+        .vc_custom_1459520532939 {
+            margin-top: -2px !important;
+        }
+        
+        .vc_custom_1459520391474 {
+            padding-left: 29px !important;
+        }
+        
+        .vc_custom_1459520453292 {
+            margin-bottom: 20px !important;
+            padding-left: 29px !important;
+        }
+        
+        .vc_custom_1459520538228 {
+            margin-top: -2px !important;
+        }
+        
+        .vc_custom_1459520399984 {
+            padding-left: 29px !important;
+        }
+        
+        .vc_custom_1459520472016 {
+            margin-bottom: 0px !important;
+            padding-left: 29px !important;
+        }
+        
+        .vc_custom_1459520461052 {
+            margin-bottom: 0px !important;
+            padding-left: 29px !important;
+        }
+        
+        .vc_custom_1459520465399 {
+            margin-bottom: 0px !important;
+            padding-left: 29px !important;
+        }
+        
+        .vc_custom_1459844282139 {
+            padding-top: 17px !important;
+            padding-bottom: 5px !important;
+        }
+        
+        .vc_custom_1459844288411 {
+            padding-top: 17px !important;
+            padding-bottom: 5px !important;
+        }
+        
+        .wh-header-button {
+            font-size: 14px;
+        }
+        
+        .vc_custom_1456745768806 {
+            background-color: #f6f6f6 !important;
+        }
+        
+        .vc_custom_1459169239492 {
+            padding-top: 7px !important;
+            padding-bottom: 7px !important;
+        }
+        
+        .vc_custom_1459169247628 {
+            padding-top: 7px !important;
+            padding-bottom: 7px !important;
+        }
+        
+        .vc_custom_1459504801236 {
+            margin-bottom: 0px !important;
+        }
+        
+        .vc_custom_1459504808143 {
+            margin-bottom: 0px !important;
+        }
+        
+        .vc_custom_1459505036891 {
+            padding-top: 30px !important;
+        }
+        
+        .vc_custom_1459505041560 {
+            padding-top: 30px !important;
+        }
+        
+        .vc_custom_1459505045946 {
+            padding-top: 30px !important;
+        }
+        
+        .vc_custom_1459505049991 {
+            padding-top: 30px !important;
+        }
+        
+        .vc_custom_1459753053497 {
+            margin-top: 12px !important;
+        }
+        
+        .vc_custom_1458737539886 {
+            margin-bottom: 0px !important;
+            padding-left: 33px !important;
+        }
+        
+        .vc_custom_1456755878099 {
+            padding-left: 33px !important;
+        }
+        
+        .vc_custom_1458824073653 {
+            margin-top: 12px !important;
+        }
+        
+        .vc_custom_1458737546989 {
+            margin-bottom: 0px !important;
+            padding-left: 33px !important;
+        }
+        
+        .vc_custom_1456755889358 {
+            padding-left: 33px !important;
+        }
+        
+        .vc_custom_1458824078556 {
+            margin-top: 12px !important;
+        }
+        
+        .vc_custom_1458824147535 {
+            margin-bottom: 0px !important;
+            padding-left: 38px !important;
+        }
+        
+        .vc_custom_1458824154814 {
+            padding-left: 38px !important;
+        }
+        
+        .vc_custom_1459169763730 {
+            margin-top: 25px !important;
+            margin-bottom: 25px !important;
+        }
+        
+        .vc_custom_1459169732301 {
+            margin-bottom: 25px !important;
+        }
+        
+        .vc_custom_1459778405965 {
+            margin-bottom: 25px !important;
+        }
+        
+        .vc_custom_1459778410586 {
+            margin-bottom: 25px !important;
+        }
+        
+        .vc_custom_1459778415275 {
+            margin-bottom: 25px !important;
+        }
+        
+        .vc_custom_1459778419846 {
+            margin-bottom: 25px !important;
+        }
+        
+        .vc_custom_1458120462806 {
+            margin-top: 12px !important;
+        }
+        
+        .vc_custom_1458737539886 {
+            margin-bottom: 0px !important;
+            padding-left: 33px !important;
+        }
+        
+        .vc_custom_1456755878099 {
+            padding-left: 33px !important;
+        }
+        
+        .vc_custom_1458824073653 {
+            margin-top: 12px !important;
+        }
+        
+        .vc_custom_1458737546989 {
+            margin-bottom: 0px !important;
+            padding-left: 33px !important;
+        }
+        
+        .vc_custom_1456755889358 {
+            padding-left: 33px !important;
+        }
+        
+        .vc_custom_1458824078556 {
+            margin-top: 12px !important;
+        }
+        
+        .vc_custom_1458824147535 {
+            margin-bottom: 0px !important;
+            padding-left: 38px !important;
+        }
+        
+        .vc_custom_1458824154814 {
+            padding-left: 38px !important;
+        }
+        
+        .scp_block_quote_alt-34902ea9cfa9e7b81447f4fa74ea958e.scp-block-quote-alt {
+            width: 50%;
+            float: right;
+        }
+        
+        .scp_theme_icon-cacf64ade55c1849cdf89aae2aaed7ca.wh-theme-icon {
+            font-size: 30px !important;
+            position: absolute;
+        }
+        
+        .scp_theme_icon-88ba80fa0fa71ef023eae10ef3ae5e1a.wh-theme-icon {
+            font-size: 30px !important;
+            position: absolute;
+        }
+        
+        .scp_theme_icon-52e6aa0dbbf005841713c62473ee2735.wh-theme-icon {
+            font-size: 30px !important;
+            position: absolute;
+        }
+        
+        .scp_theme_icon-a3f42cfb97e0616fe133ee3e060d16e7.wh-theme-icon {
+            font-size: 16px !important;
+            position: absolute;
+            color: #ffffff !important;
+        }
+        
+        .scp_theme_icon-983ac0d87c8a6f0a9ad7ae075f5a59ea.wh-theme-icon {
+            font-size: 16px !important;
+            position: absolute;
+            color: #ffffff !important;
+        }
+        
+        .scp_theme_icon-0c88df23507735d3a5fa9dd2f5a7cf6f.wh-theme-icon {
+            font-size: 27px !important;
+            position: absolute;
+        }
+        
+        .scp_theme_icon-497d849a60fb2b4462800136afd7cd1a.wh-theme-icon {
+            font-size: 28px !important;
+            position: absolute;
+        }
+        
+        .scp_theme_icon-1fc6424b3e5551ec59c4e9b5a1563a2e.wh-theme-icon {
+            font-size: 28px !important;
+            position: absolute;
+        }
+        
+        li.msm-menu-item .msm-submenu a.wh-button.scp_theme_button-f8239f00c0b0bddbb1bb049012965ca6,
+        .scp_theme_button-f8239f00c0b0bddbb1bb049012965ca6 {
+            font-size: 15px;
+        }
+        
+        .scp_theme_icon-e970b5267ff1b1156fbdd4faf395d03b.wh-theme-icon {
+            font-size: 25px !important;
+            position: absolute;
+        }
+        
+        .scp_theme_icon-497d849a60fb2b4462800136afd7cd1a.wh-theme-icon {
+            font-size: 28px !important;
+            position: absolute;
+        }
+        
+        .scp_theme_icon-1fc6424b3e5551ec59c4e9b5a1563a2e.wh-theme-icon {
+            font-size: 28px !important;
+            position: absolute;
+        }
+    </style>
+    <script type='text/javascript'>
+        /* <![CDATA[ */
+        var LS_Meta = {
+            "v": "6.8.2"
+        };
+        /* ]]> */
+    </script>
+    <script type='text/javascript' src='http://schooltime.aislinthemes.com/app/plugins/LayerSlider/static/layerslider/js/greensock.js?ver=1.19.0'></script>
+    <script type='text/javascript' src='http://schooltime.aislinthemes.com/modern/wp-includes/js/jquery/jquery.js?ver=1.12.4'></script>
+    <script type='text/javascript'>
+        /* <![CDATA[ */
+        var school_time_plugin = {
+            "data": {
+                "vcWidgets": {
+                    "ourProcess": {
+                        "breakpoint": 480
+                    }
+                },
+                "styles": []
+            }
+        };
+        var wheels = {
+            "siteName": "Modern",
+            "data": {
+                "useScrollToTop": true,
+                "useStickyMenu": true,
+                "scrollToTopText": "",
+                "isAdminBarShowing": false,
+                "initialWaypointScrollCompensation": "120",
+                "preloaderSpinner": 0,
+                "preloaderBgColor": "#304ffe"
+            }
+        };
+        /* ]]> */
+    </script>
+    <script type='text/javascript' src='http://schooltime.aislinthemes.com/modern/wp-includes/js/jquery/jquery-migrate.js?ver=1.4.1'></script>
+    <script type='text/javascript' src='http://schooltime.aislinthemes.com/app/plugins/LayerSlider/static/layerslider/js/layerslider.kreaturamedia.jquery.js?ver=6.8.2'></script>
+    <script type='text/javascript' src='http://schooltime.aislinthemes.com/app/plugins/LayerSlider/static/layerslider/js/layerslider.transitions.js?ver=6.8.2'></script>
+    <script type='text/javascript' src='http://schooltime.aislinthemes.com/app/plugins/school-time-plugin/extensions/mega-submenu/public/js/msm-main.min.js?ver=1.2.8'></script>
+    <script type='text/javascript' src='http://schooltime.aislinthemes.com/app/plugins/school-time-plugin/extensions/smart-grid-gallery/includes/dist/sgg.min.js?ver=5.1'></script>
+    <script type='text/javascript' src='http://schooltime.aislinthemes.com/app/plugins/testimonial-rotator/js/jquery.cycletwo.js?ver=5.1'></script>
+    <script type='text/javascript' src='http://schooltime.aislinthemes.com/app/plugins/testimonial-rotator/js/jquery.cycletwo.addons.js?ver=5.1'></script>
+    <script type='text/javascript' src='http://schooltime.aislinthemes.com/app/themes/school-time-child-demo/assets/js/demo.js'></script>
+    <script type='text/javascript' src='http://schooltime.aislinthemes.com/app/themes/school-time/assets/js/vendor/modernizr-2.7.0.min.js'></script>
+    <meta name="generator" content="Powered by LayerSlider 6.8.2 - Multi-Purpose, Responsive, Parallax, Mobile-Friendly Slider Plugin for WordPress." />
+    <!-- LayerSlider updates and docs at: https://layerslider.kreaturamedia.com -->
+    <link rel='https://api.w.org/' href='http://schooltime.aislinthemes.com/modern/wp-json/' />
+    <link rel="EditURI" type="application/rsd+xml" title="RSD" href="http://schooltime.aislinthemes.com/modern/xmlrpc.php?rsd" />
+    <link rel="wlwmanifest" type="application/wlwmanifest+xml" href="http://schooltime.aislinthemes.com/modern/wp-includes/wlwmanifest.xml" />
+    <meta name="generator" content="WordPress 5.1" />
+
+    <!--BEGIN: TRACKING CODE MANAGER BY INTELLYWP.COM IN HEAD//-->
+    <!-- Facebook Pixel Code -->
+    <script>
+        ! function(f, b, e, v, n, t, s) {
+            if (f.fbq) return;
+            n = f.fbq = function() {
+                n.callMethod ?
+                    n.callMethod.apply(n, arguments) : n.queue.push(arguments)
+            };
+            if (!f._fbq) f._fbq = n;
+            n.push = n;
+            n.loaded = !0;
+            n.version = '2.0';
+            n.queue = [];
+            t = b.createElement(e);
+            t.async = !0;
+            t.src = v;
+            s = b.getElementsByTagName(e)[0];
+            s.parentNode.insertBefore(t, s)
+        }(window,
+            document, 'script', 'https://connect.facebook.net/en_US/fbevents.js');
+        fbq('init', '1558892560819583'); // Insert your pixel ID here.
+        fbq('track', 'PageView');
+    </script>
+    <noscript><img height="1" width="1" style="display:none"
+src="https://www.facebook.com/tr?id=1558892560819583&ev=PageView&noscript=1"
+/></noscript>
+    <!-- DO NOT MODIFY -->
+    <!-- End Facebook Pixel Code -->
+    <!--END: https://wordpress.org/plugins/tracking-code-manager IN HEAD//-->
+    <meta name="tec-api-version" content="v1">
+    <meta name="tec-api-origin" content="http://schooltime.aislinthemes.com/modern">
+    <link rel="https://theeventscalendar.com/" href="http://schooltime.aislinthemes.com/modern/wp-json/tribe/events/v1/" />
+    <style type="text/css" data-type="vc_custom-css">
+        .label-new b {
+            position: relative;
+            right: -2px;
+            color: #fff;
+            background-color: #ff4f57;
+            padding: 3px 3px;
+            font-size: 9px;
+            text-transform: uppercase;
+        }
+    </style>
+    <style type="text/css" data-type="vc_shortcodes-custom-css">
+        .vc_custom_1481282017250 {
+            padding-right: 0px !important;
+            padding-left: 0px !important;
+        }
+        
+        .vc_custom_1552308539829 {
+            padding-top: 20px !important;
+            padding-right: 50px !important;
+            padding-left: 50px !important;
+            background-color: #202533 !important;
+        }
+        
+        .vc_custom_1552308166528 {
+            padding-right: 50px !important;
+            padding-left: 50px !important;
+            background-color: #ff7264 !important;
+        }
+        
+        .vc_custom_1552311144038 {
+            margin-bottom: 12px !important;
+        }
+        
+        .vc_custom_1552310659897 {
+            margin-bottom: 11px !important;
+            margin-left: 0px !important;
+            padding-left: 0px !important;
+        }
+        
+        .vc_custom_1552311046855 {
+            margin-bottom: 11px !important;
+            padding-left: 0px !important;
+        }
+        
+        .vc_custom_1552310666824 {
+            margin-bottom: 11px !important;
+            padding-left: 0px !important;
+        }
+        
+        .vc_custom_1552310671370 {
+            margin-bottom: 11px !important;
+            padding-left: 0px !important;
+        }
+        
+        .vc_custom_1552311161406 {
+            margin-bottom: 12px !important;
+        }
+        
+        .vc_custom_1552310960368 {
+            margin-bottom: 11px !important;
+            margin-left: 0px !important;
+            padding-left: 0px !important;
+        }
+        
+        .vc_custom_1552311053326 {
+            margin-bottom: 11px !important;
+            padding-left: 0px !important;
+        }
+        
+        .vc_custom_1552311057096 {
+            margin-bottom: 11px !important;
+            padding-left: 0px !important;
+        }
+        
+        .vc_custom_1552311060415 {
+            margin-bottom: 11px !important;
+            padding-left: 0px !important;
+        }
+        
+        .vc_custom_1552308289023 {
+            margin-bottom: 7px !important;
+            padding-left: 0px !important;
+        }
+        
+        .vc_custom_1552311173008 {
+            margin-bottom: 12px !important;
+        }
+        
+        .vc_custom_1552311064614 {
+            margin-bottom: 11px !important;
+            padding-left: 0px !important;
+        }
+        
+        .vc_custom_1552311071230 {
+            margin-bottom: 11px !important;
+            padding-left: 0px !important;
+        }
+        
+        .vc_custom_1552311114326 {
+            margin-bottom: 11px !important;
+            padding-left: 0px !important;
+        }
+        
+        .vc_custom_1552311117774 {
+            margin-bottom: 11px !important;
+            margin-left: 0px !important;
+            padding-left: 0px !important;
+        }
+        
+        .vc_custom_1552307771820 {
+            margin-bottom: 7px !important;
+            padding-left: 0px !important;
+        }
+        
+        .vc_custom_1552307167965 {
+            margin-bottom: 20px !important;
+        }
+        
+        .vc_custom_1480416422282 {
+            margin-bottom: 12px !important;
+        }
+        
+        .vc_custom_1552311223782 {
+            margin-bottom: 15px !important;
+        }
+        
+        .vc_custom_1480417756890 {
+            margin-bottom: 50px !important;
+        }
+        
+        .vc_custom_1552307176922 {
+            margin-bottom: 20px !important;
+        }
+        
+        .vc_custom_1552308480774 {
+            margin-bottom: 12px !important;
+        }
+        
+        .vc_custom_1552311229494 {
+            margin-bottom: 15px !important;
+        }
+        
+        .vc_custom_1480417756890 {
+            margin-bottom: 50px !important;
+        }
+        
+        .vc_custom_1552307183521 {
+            margin-bottom: 20px !important;
+        }
+        
+        .vc_custom_1552308469214 {
+            margin-bottom: 12px !important;
+        }
+        
+        .vc_custom_1552311233190 {
+            margin-bottom: 15px !important;
+        }
+        
+        .vc_custom_1480417756890 {
+            margin-bottom: 50px !important;
+        }
+        
+        .vc_custom_1481724735613 {
+            padding-top: 30px !important;
+        }
+        
+        .vc_custom_1481724904908 {
+            padding-top: 20px !important;
+            padding-bottom: 20px !important;
+        }
+        
+        .vc_custom_1552308523293 {
+            margin-bottom: 0px !important;
+        }
+    </style>
+    <style type="text/css" data-type="vc_shortcodes-custom-css">
+        .vc_custom_1481279818594 {
+            padding-top: 0px !important;
+            padding-right: 0px !important;
+            padding-left: 0px !important;
+            background-color: #ffffff !important;
+        }
+        
+        .vc_custom_1552309003505 {
+            padding-top: 0px !important;
+            padding-right: 0px !important;
+            padding-bottom: 0px !important;
+            padding-left: 45px !important;
+            background-color: #202533 !important;
+        }
+        
+        .vc_custom_1480067484702 {
+            padding: 0px !important;
+        }
+        
+        .vc_custom_1480071617075 {
+            padding-top: 10% !important;
+            padding-right: 15% !important;
+            padding-bottom: 10% !important;
+            padding-left: 15% !important;
+        }
+        
+        .vc_custom_1552311344582 {
+            margin-top: 90px !important;
+            margin-bottom: 20px !important;
+        }
+        
+        .vc_custom_1552311364006 {
+            margin-bottom: 7px !important;
+        }
+        
+        .vc_custom_1552311370326 {
+            margin-bottom: 7px !important;
+        }
+        
+        .vc_custom_1552311593530 {
+            background-image: url(http://schooltime.aislinthemes.com/app/uploads/sites/2/2016/02/News-04.png?id=494) !important;
+            background-position: center !important;
+            background-repeat: no-repeat !important;
+            background-size: cover !important;
+        }
+        
+        .vc_custom_1552306362795 {
+            margin-top: 35px !important;
+            margin-bottom: 25px !important;
+        }
+        
+        .vc_custom_1480064191087 {
+            padding: 0px !important;
+        }
+        
+        .vc_custom_1480067484702 {
+            padding: 0px !important;
+        }
+        
+        .vc_custom_1480067491626 {
+            padding: 0px !important;
+        }
+        
+        .vc_custom_1552311559298 {
+            background-image: url(http://schooltime.aislinthemes.com/app/uploads/sites/2/2016/03/Addmission03.png?id=635) !important;
+            background-position: center !important;
+            background-repeat: no-repeat !important;
+            background-size: cover !important;
+        }
+        
+        .vc_custom_1552311567921 {
+            background-image: url(http://schooltime.aislinthemes.com/app/uploads/sites/2/2016/02/03.png?id=473) !important;
+            background-position: center !important;
+            background-repeat: no-repeat !important;
+            background-size: cover !important;
+        }
+        
+        .vc_custom_1552311573314 {
+            background-image: url(http://schooltime.aislinthemes.com/app/uploads/sites/2/2016/02/12.png?id=481) !important;
+            background-position: center !important;
+            background-repeat: no-repeat !important;
+            background-size: cover !important;
+        }
+    </style>
+    <script>
+        var msm_mega_submenu = {
+            "data": {
+                "submenu_items_position_relative": 0,
+                "mobile_menu_trigger_click_bellow": 768
+            }
+        };
+    </script>
+
+    <style type="text/css" id="breadcrumb-trail-css">
+        .breadcrumbs .trail-browse,
+        .breadcrumbs .trail-items,
+        .breadcrumbs .trail-items li {
+            display: inline-block;
+            margin: 0;
+            padding: 0;
+            border: none;
+            background: transparent;
+            text-indent: 0;
+        }
+        
+        .breadcrumbs .trail-browse {
+            font-size: inherit;
+            font-style: inherit;
+            font-weight: inherit;
+            color: inherit;
+        }
+        
+        .breadcrumbs .trail-items {
+            list-style: none;
+        }
+        
+        .trail-items li::after {
+            content: "\002F";
+            padding: 0 0.5em;
+        }
+        
+        .trail-items li:last-of-type::after {
+            display: none;
+        }
+    </style>
+    <style type="text/css">
+        .recentcomments a {
+            display: inline !important;
+            padding: 0 !important;
+            margin: 0 !important;
+        }
+    </style>
+    <meta name="generator" content="Powered by WPBakery Page Builder - drag and drop page builder for WordPress." />
+    <!--[if lte IE 9]><link rel="stylesheet" type="text/css" href="http://schooltime.aislinthemes.com/app/plugins/js_composer/assets/css/vc_lte_ie9.min.css" media="screen"><![endif]-->
+    <link rel='stylesheet' id='vc_google_fonts_raleway100200300regular500600700800900-css' href='//fonts.googleapis.com/css?family=Raleway%3A100%2C200%2C300%2Cregular%2C500%2C600%2C700%2C800%2C900&#038;ver=4.4.2' type='text/css' media='all' />
+    <style type="text/css">
+        #justified_gallery_smart-grid-child-theme-generated-id .sgg-caption {
+            background: rgb(0, 0, 0);
+            background: rgba(0, 0, 0, 0.7);
+            color: #ffffff;
+            font-size: 1em;
+            font-weight: 400;
+            font-family: Raleway;
+        }
+        
+        #load_more_smart-grid-child-theme-generated-id {
+            background: #444444;
+            color: #ffffff;
+        }
+    </style><noscript><style type="text/css"> .wpb_animate_when_almost_visible { opacity: 1; }</style></noscript></head>
+
+<body class="blog wp-custom-logo tribe-no-js header-top page-title-enabled wpb-js-composer js-comp-ver-5.7 vc_responsive">
+    <div class="header-mobile header-mobile-default">
+        <div id="wh-mobile-menu" class="respmenu-wrap">
+            <div class="respmenu-header">
+                <a href="{{ url_for('index') }}" class="respmenu-header-logo-link">
+                    <img src="{{ url_for('static', filename='img/logo.jpg') }}" class="respmenu-header-logo" alt="Logo">
+                </a>
+                <div class="respmenu-open">
+                    <hr>
+                    <hr>
+                    <hr>
+                </div>
+            </div>
+
+            <!--Tenemos que cambiar las referencias una vez terminemos las pág-->
+            <div class="menu-mobile-menu-container">
+                <ul id="menu-mobile-menu" class="respmenu">
+                    <li id="menu-item-1081" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-8 current_page_item menu-item-has-children menu-item-1081 msm-top-level-item"><a href="{{ url_for('index') }}" aria-current="page">Home</a>
+                        <div class="respmenu-submenu-toggle cbp-respmenu-more"><i class="fa fa-angle-down"></i></div>
+                    </li>
+                    <li id="menu-item-1082" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-1082 msm-top-level-item"><a href="{{ url_for('MisionyVision') }}">Nosotros</a>
+                        <div class="respmenu-submenu-toggle cbp-respmenu-more"><i class="fa fa-angle-down"></i></div>
+
+                        <ul class="sub-menu">
+                            <li id="menu-item-1083" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1083"><a href="{{ url_for('MisionyVision') }}">Misión y Visión</a></li>
+                            <li id="menu-item-1084" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1084"><a href="{{ url_for('PlanEmergencia') }}">Plan de Emergencia</a></li>
+                            <li id="menu-item-1085" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1085"><a href="{{ url_for('Historia') }}">Historia de nuestro colegio</a></li>
+                        </ul>
+                    </li>
+
+                    <li id="menu-item-1089" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1089 msm-top-level-item"><a href="{{ url_for('Galeria') }}">Galería</a></li>
+                    <li id="menu-item-1091" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-1091 msm-top-level-item"><a href="../#">Noticias</a></li>
+                </ul>
+            </div>
+        </div>
+    </div>
+    <!--INICIO CONTAINER 1 
+		
+			(logo del colegio) direccion etc.-->
+    <div class="cbp-container wh-top-bar pad-left">
+        <div data-vc-full-width="true" data-vc-full-width-init="false" class="vc_row wpb_row vc_row-fluid wh-top-header vc_custom_1456745768806 vc_row-has-fill">
+            <div class="wpb_column vc_column_container vc_col-sm-6 vc_hidden-xs">
+                <div class="vc_column-inner vc_custom_1459169239492">
+                    <div class="wpb_wrapper">
+                        <p style="font-size: 14px;color: #acaeb1;text-align: left" class="vc_custom_heading vc_custom_1459504801236">Barrio Parque Portales, Santiago Centro, Cueto, 180.</p>
+                    </div>
+                </div>
+            </div>
+            <div class="wpb_column vc_column_container vc_col-sm-6 vc_hidden-xs">
+                <div class="vc_column-inner vc_custom_1459169247628">
+                    <div class="wpb_wrapper">
+                        <p style="font-size: 14px;color: #acaeb1;text-align: right" class="vc_custom_heading vc_custom_1459504808143">Admisiones de alumnos sin distinción alguna.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!--IMAGEN, NUMERO,DIRECCION Y DIA-->
+        <div class="vc_row-full-width vc_clearfix"></div>
+        <div class="vc_row wpb_row vc_row-fluid">
+            <div class="wpb_column vc_column_container vc_col-sm-4 vc_hidden-md vc_hidden-sm vc_hidden-xs">
+                <div class="vc_column-inner">
+                    <div class="wpb_wrapper">
+                        <div class="wh-logo wpb_single_image wpb_content_element vc_align_left">
+                            <!--LOGO INICIO-->
+                            <figure class="wpb_wrapper vc_figure">
+                                <a href="{{ url_for('index') }}">
+                                    <img src="{{ url_for('static', filename='img/logo.jpg') }}" alt="logo" width=160 height=30>
+                                    <!--El Logo-->
+                                </a>
+                            </figure>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="wpb_column vc_column_container vc_col-sm-2 vc_hidden-md vc_hidden-sm vc_hidden-xs">
+                <div class="vc_column-inner vc_custom_1459505036891">
+                    <div class="wpb_wrapper">
+                        <div class="wh-theme-icon vc_custom_1459753053497  scp_theme_icon-0c88df23507735d3a5fa9dd2f5a7cf6f">
+                            <i class="material-icons">phone_in_talk</i>
+                        </div>
+                        <p style="font-size: 14px;text-align: left" class="vc_custom_heading vc_custom_1458737539886">+56966819266</p>
+                        <p style="font-size: 14px;line-height: 16px;text-align: left" class="vc_custom_heading vc_custom_1456755878099">escuela@gmail.com</p>
+                    </div>
+                </div>
+            </div>
+            <div class="wpb_column vc_column_container vc_col-sm-2 vc_hidden-md vc_hidden-sm vc_hidden-xs">
+                <div class="vc_column-inner vc_custom_1459505041560">
+                    <div class="wpb_wrapper">
+                        <div class="wh-theme-icon vc_custom_1458824073653  scp_theme_icon-497d849a60fb2b4462800136afd7cd1a">
+                            <i class="material-icons">place</i>
+                        </div>
+                        <p style="font-size: 14px;text-align: left" class="vc_custom_heading vc_custom_1458737546989">Cueto 180</p>
+                        <p style="font-size: 14px;line-height: 16px;text-align: left" class="vc_custom_heading vc_custom_1456755889358">Santiago, Chile</p>
+                    </div>
+                </div>
+            </div>
+            <div class="wpb_column vc_column_container vc_col-sm-2 vc_hidden-md vc_hidden-sm vc_hidden-xs">
+                <div class="vc_column-inner vc_custom_1459505045946">
+                    <div class="wpb_wrapper">
+                        <div class="wh-theme-icon vc_custom_1458824078556  scp_theme_icon-1fc6424b3e5551ec59c4e9b5a1563a2e">
+                            <i class="material-icons">access_time</i>
+                        </div>
+                        <p style="font-size: 14px;text-align: left" class="vc_custom_heading vc_custom_1458824147535">07:00 - 19:00</p>
+                        <p style="font-size: 14px;line-height: 16px;text-align: left" class="vc_custom_heading vc_custom_1458824154814">Lunes a Viernes</p>
+                    </div>
+                </div>
+            </div>
+            <div class="wpb_column vc_column_container vc_col-sm-2 vc_hidden-md vc_hidden-sm vc_hidden-xs">
+
+            </div>
+        </div>
+        <div class="vc_row wpb_row vc_row-fluid">
+            <div class="wpb_column vc_column_container vc_col-sm-12 vc_hidden-lg vc_hidden-xs">
+                <div class="vc_column-inner">
+                    <div class="wpb_wrapper">
+                        <div class="wh-logo wpb_single_image wpb_content_element vc_align_center vc_custom_1459169763730">
+                            <!--LOGO INICIO SCROLL-->
+                            <figure class="wpb_wrapper vc_figure">
+                                <a href="{{ url_for('index') }}"><img class=" vc_single_image-img" src="{{ url_for('static', filename='img/logo.jpg') }}" alt="logo" /></a>
+                            </figure>
+                        </div>
+                        <div class="vc_separator wpb_content_element vc_separator_align_center vc_sep_width_50 vc_sep_pos_align_center vc_separator_no_text vc_sep_color_grey vc_custom_1459169732301  vc_custom_1459169732301"><span class="vc_sep_holder vc_sep_holder_l"><span  class="vc_sep_line"></span></span><span class="vc_sep_holder vc_sep_holder_r"><span  class="vc_sep_line"></span></span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <!--BARRA QUE CONTIENE INICIO, NOSOTROS, PROGRAMAS ETX-->
+    <header class="cbp-row wh-header top">
+
+        <div class="wh-main-menu-bar-wrapper wh-sticky-header-enabled">
+            <div class="cbp-container">
+                <div class="logo-sticky wh-padding">
+                    <a href="{{ url_for('index') }}">
+                        <img width="100" src="{{ url_for('static', filename='img/logo.jpg') }}" alt="Logo">
+                    </a>
+                </div>
+                <!--INICIO-->
+
+                <div class="wh-main-menu one whole wh-padding">
+                    <div id="cbp-menu-main">
+                        <div class="menu-main-menu-container">
+                            <ul id="menu-main-menu" class="sf-menu wh-menu-main pull-left show-x">
+                                <li id="menu-item-948" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-home current-menu-item page_item page-item-8 current_page_item menu-item-has-children menu-item-948 msm-top-level-item"><a href="{{ url_for('index') }}" aria-current="page"><i class="material-icons">home</i></a>
+
+                                </li>
+
+
+                                <!--Nosotros-->
+                                <li id="menu-item-953" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-has-children menu-item-953 msm-top-level-item"><a href="{{ url_for('MisionyVision') }}">Nosotros</a>
+                                    <ul class="sub-menu">
+                                        <li id="menu-item-959" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-959"><a href="{{ url_for('MisionyVision') }}">Misión y visión</a></li>
+                                        <li id="menu-item-958" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-958"><a href="{{ url_for('PlanEmergencia') }}">Plan de emergencia</a></li>
+                                        <li id="menu-item-957" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-957"><a href="{{ url_for('Historia') }}">Historia de nuestro colegio</a></li>
+                                    </ul>
+                                </li>
+
+                                <!--GALERIA DE FOTOS-->
+                                <li id="menu-item-949" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-949 msm-top-level-item msm-menu-item menu-item-has-children msm-hover"><a href="{{ url_for('Galeria') }}">Galeria de fotos</a>
+                                </li>
+
+                                <!--FIN DE GALERIA DE FOTOS-->
+
+
+                                <!--Noticias-->
+                                <li id="menu-item-951" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-951 msm-top-level-item"><a href="#">Noticias</a></li>
+
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+    <!--FIN DE LA BARRA DE INICIO,NOSOTROS, PROGRAMAS ETX-->
+    <script>
+        jQuery(function($) {
+            var $demoTrigger = $('.demo-trigger');
+            var $demoWrap = $('.demo-wrap');
+            var speed = 200;
+            var move = -224;
+
+            $demoTrigger.toggle(
+                function() {
+                    $demoWrap.animate({
+                        right: 0
+                    }, speed);
+                },
+                function() {
+                    $demoWrap.animate({
+                        right: move
+                    }, speed);
+                }
+            );
+        });
+    </script>
+
+
+
+
+
+
+    <div class="cbp-row wh-page-title-bar">
+        <div class="cbp-container">
+            <div class="one whole wh-padding wh-page-title-wrapper">
+                <h1 class="page-title">Noticias</h1>
+            </div>
+        </div>
+    </div>
+    <div class="cbp-row wh-breadcrumbs-bar">
+        <div class="cbp-container">
+            <div class="one whole wh-padding wh-breadcrumbs-wrapper">
+                <div class="wh-breadcrumbs align-left">
+                    <nav role="navigation" aria-label="Breadcrumbs" class="breadcrumb-trail breadcrumbs" itemprop="breadcrumb">
+                        <ul class="trail-items" itemscope itemtype="http://schema.org/BreadcrumbList">
+                            <meta name="numberOfItems" content="2" />
+                            <meta name="itemListOrder" content="Ascending" />
+                            <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem" class="trail-item trail-begin"><a href="{{ url_for('index') }}" rel="home" itemprop="item"><span itemprop="name">Home</span></a>
+                                <meta itemprop="position" content="1" />
+                            </li>
+                            <li itemprop="itemListElement" itemscope itemtype="http://schema.org/ListItem" class="trail-item trail-end"><span itemprop="item"><span itemprop="name">Noticias</span></span>
+                                <meta itemprop="position" content="2" />
+                            </li>
+                        </ul>
+                    </nav>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="cbp-row wh-content">
+        <div class="cbp-container">
+            <div class="three fourths wh-padding wh-content-inner">
+                <div class="wh-post-item post-35 post type-post status-publish format-standard has-post-thumbnail hentry category-category-1 category-category-2 category-uncategorized tag-reading tag-school tag-smart odd">
+                    <div class="one whole">
+                        <div class="thumbnail">
+
+                            <a href="http://schooltime.aislinthemes.com/modern/2016/02/25/post-2/" title="Survey for School Time Alumni">
+
+                                {% for image_name in image_names %}
+                            
+                                <img width="895" height="430" src="{{url_for( 'uploaded_file', 'filename=image_name')}}" class="wh-featured-image wp-post-image" alt="" sizes="(max-width: 895px) 100vw, 895px" /></a> {% endfor
+                            %}
+
+                        </div>
+                        <h2 class="entry-title"><a href="http://schooltime.aislinthemes.com/modern/2016/02/25/post-2/">{{ post.title }}</a></h2>
+                        publicado el: {{post.date.strftime('%d')}} de {{post.date.strftime('%B')}}, {{post.date.strftime('%Y')}}
+                    </div>
+                    <div class="item one whole">
+                        <div class="entry-summary">{{ post.text }}
+
+                        </div>
+                    </div>
+                </div>
+
+                <div class="double-pad-top">
+                </div>
+            </div>
+
+        </div>
+    </div>
+    <div class="cbp-row wh-footer">
+        <div class="cbp-container wh-padding">
+            <div data-vc-full-width="true" data-vc-full-width-init="false" class="vc_row wpb_row vc_row-fluid vc_custom_1459852617004 vc_row-has-fill">
+
+
+            </div>
+            <div class="vc_row-full-width vc_clearfix"></div>
+            <div data-vc-full-width="true" data-vc-full-width-init="false" class="vc_row wpb_row vc_row-fluid vc_custom_1457437609751 vc_row-has-fill">
+                <div class="wpb_column vc_column_container vc_col-sm-12">
+                    <div class="vc_column-inner vc_custom_1459852665865">
+                        <div class="wpb_wrapper">
+                            <div class="vc_separator wpb_content_element vc_separator_align_center vc_sep_width_100 vc_sep_pos_align_center vc_separator_no_text"><span class="vc_sep_holder vc_sep_holder_l"><span  style="border-color:#5a5c60;" class="vc_sep_line"></span></span><span class="vc_sep_holder vc_sep_holder_r"><span  style="border-color:#5a5c60;" class="vc_sep_line"></span></span>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="vc_row-full-width vc_clearfix"></div>
+            <div data-vc-full-width="true" data-vc-full-width-init="false" class="vc_row wpb_row vc_row-fluid vc_custom_1457438149013 vc_row-has-fill">
+                <div class="wpb_column vc_column_container vc_col-sm-3">
+                    <div class="vc_column-inner vc_custom_1457436622007">
+                        <div class="wpb_wrapper">
+                            <h5 style="color: #ffffff;text-align: left" class="vc_custom_heading vc_custom_1459520288563">Acerca de nosotros</h5>
+                            <p style="line-height: 23px;text-align: left" class="vc_custom_heading vc_custom_1459520010654">Somos un centro educativo, acreditado por el Mineduc, el año "X" y regida por el Decreto 1300. Atiende a niños y niñas que necesitan mejorar sus habilidades de comunicación especialmente en lo referente al lenguaje Oral, o
+                                trastornos Específicos del lenguaje (TEL), mixtos o expresivos. Nuestra Escuela ha trabajado con dedicación, excelencia.</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="wpb_column vc_column_container vc_col-sm-3">
+                    <div class="vc_column-inner vc_custom_1459852701024">
+                        <div class="wpb_wrapper">
+                            <h5 style="color: #ffffff;text-align: left" class="vc_custom_heading vc_custom_1459520284747">Enlaces de interes</h5>
+                            <div class="vc_row wpb_row vc_inner vc_row-fluid">
+                                <div class="wpb_column vc_column_container vc_col-sm-6">
+                                    <div class="vc_column-inner vc_custom_1459852535619">
+                                        <div class="wpb_wrapper">
+                                            <div class="vc_wp_custommenu wpb_content_element">
+                                                <div class="widget widget_nav_menu">
+                                                    <div class="menu-about-us-container">
+                                                        <ul id="menu-about-us" class="menu">
+                                                            <li id="menu-item-967" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-967 msm-top-level-item"><a href="https://www.mineduc.cl" target="_blank">Ministerio de Educación</a></li>
+                                                            <li id="menu-item-965" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-965 msm-top-level-item"><a href="#">Espacio para mas links</a></li>
+                                                            <li id="menu-item-966" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-966 msm-top-level-item"><a href="#">Espacio para mas links</a></li>
+                                                            <li id="menu-item-964" class="menu-item menu-item-type-post_type menu-item-object-page menu-item-964 msm-top-level-item"><a href="#">Espacio para mas links</a></li>
+                                                            <li id="menu-item-946" class="menu-item menu-item-type-custom menu-item-object-custom menu-item-946 msm-top-level-item"><a href="#">Espacio para mas links</a></li>
+                                                        </ul>
+                                                    </div>
+                                                </div>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="wpb_column vc_column_container vc_col-sm-3">
+                    <div class="vc_column-inner vc_custom_1459852997752">
+                        <div class="wpb_wrapper">
+                            <h5 style="color: #ffffff;text-align: left" class="vc_custom_heading vc_custom_1459520279651">Donde estamos</h5>
+                            <div id="googleMap" style="width:100%;height:400px;"></div>
+                            <script>
+                                function myMap() {
+                                    var myCenter = new google.maps.LatLng(-33.443300, -70.672241);
+                                    var mapProp = {
+                                        center: myCenter,
+                                        zoom: 15,
+                                        scrollwheel: true,
+                                        draggable: true,
+                                        mapTypeId: google.maps.MapTypeId.ROADMAP
+                                    };
+                                    var map = new google.maps.Map(document.getElementById("googleMap"), mapProp);
+                                    var marker = new google.maps.Marker({
+                                        position: myCenter
+                                    });
+                                    marker.setMap(map);
+                                }
+                            </script>
+
+                            <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCe6CpOTlpR8Omu-usOMzblnY--OxyKYRQ&callback=myMap"></script>
+
+                        </div>
+                    </div>
+                </div>
+                <div class="wpb_column vc_column_container vc_col-sm-3">
+                    <div class="vc_column-inner vc_custom_1459520219603">
+                        <div class="wpb_wrapper">
+
+                            <div class="wh-theme-icon vc_custom_1459520538228  scp_theme_icon-983ac0d87c8a6f0a9ad7ae075f5a59ea">
+                                <i class="material-icons">access_time</i>
+                            </div>
+                            <h6 style="font-size: 13px;color: #ffffff;text-align: left" class="vc_custom_heading wh-font-weight-normal vc_custom_1459520399984">Horarios de atención</h6>
+                            <p style="font-size: 14px;color: #989797;text-align: left" class="vc_custom_heading vc_custom_1459520472016">Lunes a Viernes: 07:00-19:00</p>
+                            <p style="font-size: 14px;color: #989797;text-align: left" class="vc_custom_heading vc_custom_1459520461052">Sabado: 09:00-15:00
+                            </p>
+                            <p style="font-size: 14px;color: #989797;text-align: left" class="vc_custom_heading vc_custom_1459520465399">Domingo: Cerrado</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="vc_row-full-width vc_clearfix"></div>
+            <div data-vc-full-width="true" data-vc-full-width-init="false" class="vc_row wpb_row vc_row-fluid">
+                <div class="wpb_column vc_column_container vc_col-sm-6">
+                    <div class="vc_column-inner vc_custom_1459844282139">
+                        <div class="wpb_wrapper">
+                            <p style="font-size: 15px;color: #000000;text-align: left" class="vc_custom_heading">@2019 fran y javier UwU</p>
+                        </div>
+                    </div>
+                </div>
+                <div class="wpb_column vc_column_container vc_col-sm-6 vc_hidden-xs">
+                    <div class="vc_column-inner vc_custom_1459844288411">
+                        <div class="wpb_wrapper">
+                            <p style="font-size: 15px;color: #000000;text-align: right" class="vc_custom_heading">School Time</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="vc_row-full-width vc_clearfix"></div>
+        </div>
+    </div>
+
+    <script>
+        (function(body) {
+            'use strict';
+            body.className = body.className.replace(/\btribe-no-js\b/, 'tribe-js');
+        })(document.body);
+    </script>
+    <script>
+        /* <![CDATA[ */
+        var tribe_l10n_datatables = {
+            "aria": {
+                "sort_ascending": ": activate to sort column ascending",
+                "sort_descending": ": activate to sort column descending"
+            },
+            "length_menu": "Show _MENU_ entries",
+            "empty_table": "No data available in table",
+            "info": "Showing _START_ to _END_ of _TOTAL_ entries",
+            "info_empty": "Showing 0 to 0 of 0 entries",
+            "info_filtered": "(filtered from _MAX_ total entries)",
+            "zero_records": "No matching records found",
+            "search": "Search:",
+            "all_selected_text": "All items on this page were selected. ",
+            "select_all_link": "Select all pages",
+            "clear_selection": "Clear Selection.",
+            "pagination": {
+                "all": "All",
+                "next": "Next",
+                "previous": "Previous"
+            },
+            "select": {
+                "rows": {
+                    "0": "",
+                    "_": ": Selected %d rows",
+                    "1": ": Selected 1 row"
+                }
+            },
+            "datepicker": {
+                "dayNames": ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"],
+                "dayNamesShort": ["Sun", "Mon", "Tue", "Wed", "Thu", "Fri", "Sat"],
+                "dayNamesMin": ["S", "M", "T", "W", "T", "F", "S"],
+                "monthNames": ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
+                "monthNamesShort": ["January", "February", "March", "April", "May", "June", "July", "August", "September", "October", "November", "December"],
+                "monthNamesMin": ["Jan", "Feb", "Mar", "Apr", "May", "Jun", "Jul", "Aug", "Sep", "Oct", "Nov", "Dec"],
+                "nextText": "Next",
+                "prevText": "Prev",
+                "currentText": "Today",
+                "closeText": "Done",
+                "today": "Today",
+                "clear": "Clear"
+            }
+        };
+        var tribe_system_info = {
+            "sysinfo_optin_nonce": "8b268229ff",
+            "clipboard_btn_text": "Copy to clipboard",
+            "clipboard_copied_text": "System info copied",
+            "clipboard_fail_text": "Press \"Cmd + C\" to copy"
+        }; /* ]]> */
+    </script>
+    <script type='text/javascript'>
+        /* <![CDATA[ */
+        var wpcf7 = {
+            "apiSettings": {
+                "root": "http:\/\/schooltime.aislinthemes.com\/modern\/wp-json\/contact-form-7\/v1",
+                "namespace": "contact-form-7\/v1"
+            }
+        };
+        /* ]]> */
+    </script>
+    <script type='text/javascript' src='http://schooltime.aislinthemes.com/app/plugins/contact-form-7/includes/js/scripts.js?ver=5.1.1'></script>
+    <script type='text/javascript' src='http://schooltime.aislinthemes.com/app/plugins/school-time-plugin//public/js/main.js?ver=5.1'></script>
+    <script type='text/javascript' src='http://schooltime.aislinthemes.com/app/themes/school-time/assets/js/plugins/fitvids.js'></script>
+    <script type='text/javascript' src='http://schooltime.aislinthemes.com/app/themes/school-time/assets/js/plugins/superfish.js'></script>
+    <script type='text/javascript' src='http://schooltime.aislinthemes.com/app/themes/school-time/assets/js/plugins/hoverintent.js'></script>
+    <script type='text/javascript' src='http://schooltime.aislinthemes.com/app/themes/school-time/assets/js/plugins/scrollup.js'></script>
+    <script type='text/javascript' src='http://schooltime.aislinthemes.com/app/themes/school-time/assets/js/plugins/jquery.sticky.js'></script>
+    <script type='text/javascript' src='http://schooltime.aislinthemes.com/app/themes/school-time/assets/js/plugins/natural-width-height.js'></script>
+    <script type='text/javascript' src='http://schooltime.aislinthemes.com/app/themes/school-time/assets/js/wheels-main.min.js'></script>
+    <script type='text/javascript' src='http://schooltime.aislinthemes.com/modern/wp-includes/js/wp-embed.js?ver=5.1'></script>
+    <script type='text/javascript' src='http://schooltime.aislinthemes.com/app/plugins/js_composer/assets/js/dist/js_composer_front.min.js?ver=5.7'></script>
+    <script type='text/javascript' src='http://schooltime.aislinthemes.com/app/plugins/js_composer/assets/lib/bower/zoom/jquery.zoom.min.js?ver=5.7'></script>
+    <script type='text/javascript' src='http://schooltime.aislinthemes.com/app/plugins/js_composer/assets/lib/vc_image_zoom/vc_image_zoom.min.js?ver=5.7'></script>
+</body>
+
+</html>
